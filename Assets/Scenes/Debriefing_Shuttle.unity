@@ -213,53 +213,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 89755148}
---- !u!1 &181434429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 184210, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 2}
-  m_PrefabInternal: {fileID: 729419841}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 181434431}
-  - component: {fileID: 181434430}
-  m_Layer: 0
-  m_Name: UnityMainThreadDispatcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &181434430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11464956, guid: 8a749df5e56f6422ba9fe64d83915a89,
-    type: 2}
-  m_PrefabInternal: {fileID: 729419841}
-  m_GameObject: {fileID: 181434429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16173428f7358476fa784f899e396692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &181434431
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22414968, guid: 8a749df5e56f6422ba9fe64d83915a89,
-    type: 2}
-  m_PrefabInternal: {fileID: 729419841}
-  m_GameObject: {fileID: 181434429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &349321633
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +257,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 349321633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36fb03f291a34f4498efb82a7996732, type: 3}
+  m_Script: {fileID: 11500000, guid: d098cf015156cd94691eba29656ec136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &349321636
@@ -327,7 +280,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 290b0596accbedf44a0e68bdaa41ac9d, type: 3}
+    m_Font: {fileID: 12800000, guid: 0bd126bdfd46e3e4592c0d4bf6c3f59c, type: 3}
     m_FontSize: 98
     m_FontStyle: 0
     m_BestFit: 0
@@ -650,7 +603,6 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 2}
-  m_RootGameObject: {fileID: 181434429}
   m_IsPrefabParent: 0
 --- !u!1 &1118520590
 GameObject:
@@ -677,10 +629,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118520590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1769424dbd37b649a4d8b1e8ef53cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f0b06c9d2bef544905ce6352176a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 0}
+  fadeOutTexture: {fileID: 2800000, guid: 0a6b5dcf84b380c46be9efbf40233d9c, type: 3}
 --- !u!4 &1118520592
 Transform:
   m_ObjectHideFlags: 0
@@ -702,7 +654,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118520590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1f8d6f3d163d04e93c4f389e9bc309, type: 3}
+  m_Script: {fileID: 11500000, guid: d80f8c6bd6568fa4490700f6cebfc366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1369326890
@@ -891,7 +843,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1587582352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebaff53b5476ca4a8c7f7e63d4d0eaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de4a9a6392fe4c4e9aa4561765f389b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1587582354
@@ -915,6 +867,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1587582352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae401d6edcb54644bbf70cbcf53d47d, type: 3}
+  m_Script: {fileID: 11500000, guid: a3cbd44cede7c9a48a3c84dd91c98edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

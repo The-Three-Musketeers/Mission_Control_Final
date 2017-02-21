@@ -6,7 +6,6 @@ using System;
 public class RocketBehavior : MonoBehaviour {
 
     public ParticleSystem particleSyst = null;
-    //public ParticleSystem particleSyst2 = null;
     public Transform cam = null;
 	int numFuelPods = 3;
 	int fuelPos = 0;
@@ -35,7 +34,6 @@ public class RocketBehavior : MonoBehaviour {
     //Win/lose conditions:
     public int min_height = 5900;
     public int max_height = 9900;
-    public ScreenChanges screenchanger = new ScreenChanges();
 
 	// Update is called once per frame
 	void FixedUpdate () {

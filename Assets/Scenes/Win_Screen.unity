@@ -178,53 +178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &181434429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 184210, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 2}
-  m_PrefabInternal: {fileID: 2096638084}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 181434431}
-  - component: {fileID: 181434430}
-  m_Layer: 0
-  m_Name: UnityMainThreadDispatcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &181434430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11464956, guid: 8a749df5e56f6422ba9fe64d83915a89,
-    type: 2}
-  m_PrefabInternal: {fileID: 2096638084}
-  m_GameObject: {fileID: 181434429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16173428f7358476fa784f899e396692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &181434431
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 22414968, guid: 8a749df5e56f6422ba9fe64d83915a89,
-    type: 2}
-  m_PrefabInternal: {fileID: 2096638084}
-  m_GameObject: {fileID: 181434429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -50}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
 --- !u!1 &190624589
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,17 +265,6 @@ MonoBehaviour:
           m_StringArgument: TitleScreen
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &190624592
@@ -344,7 +286,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6630086e98e851d4abf87859442630b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ea834bcd86a91b4d9846a1bce16566e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -445,10 +387,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 810450282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1769424dbd37b649a4d8b1e8ef53cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 54f0b06c9d2bef544905ce6352176a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 0}
+  fadeOutTexture: {fileID: 2800000, guid: 0a6b5dcf84b380c46be9efbf40233d9c, type: 3}
 --- !u!4 &810450284
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +416,7 @@ GameObject:
   - component: {fileID: 973323764}
   - component: {fileID: 973323763}
   m_Layer: 5
-  m_Name: LoseScreen
+  m_Name: WinScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +542,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1377706270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36fb03f291a34f4498efb82a7996732, type: 3}
+  m_Script: {fileID: 11500000, guid: d098cf015156cd94691eba29656ec136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1377706273
@@ -623,7 +565,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 290b0596accbedf44a0e68bdaa41ac9d, type: 3}
+    m_Font: {fileID: 12800000, guid: 0bd126bdfd46e3e4592c0d4bf6c3f59c, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
@@ -733,7 +675,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805990108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae401d6edcb54644bbf70cbcf53d47d, type: 3}
+  m_Script: {fileID: 11500000, guid: a3cbd44cede7c9a48a3c84dd91c98edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1805990110
@@ -744,7 +686,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1805990108}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ebaff53b5476ca4a8c7f7e63d4d0eaa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6de4a9a6392fe4c4e9aa4561765f389b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1805990111
@@ -815,7 +757,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: eefd18cf6e2ac4f4082919642a1e3ca4, type: 3}
+    m_Font: {fileID: 12800000, guid: dfa13b13a9c281b409fdcbfe90bfebc6, type: 3}
     m_FontSize: 125
     m_FontStyle: 0
     m_BestFit: 0
@@ -915,5 +857,4 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a749df5e56f6422ba9fe64d83915a89, type: 2}
-  m_RootGameObject: {fileID: 181434429}
   m_IsPrefabParent: 0
