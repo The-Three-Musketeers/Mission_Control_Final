@@ -1,0 +1,643 @@
+fileFormatVersion: 2
+guid: b5818cea07fe38c4486dfe4b312e5b3f
+timeCreated: 1487184242
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: HeavyPistons:Layer1
+    100002: HeavyPistons:Layer10
+    100004: HeavyPistons:Layer11
+    100006: HeavyPistons:Layer12
+    100008: HeavyPistons:Layer2
+    100010: HeavyPistons:Layer3
+    100012: HeavyPistons:Layer4
+    100014: HeavyPistons:Layer5
+    100016: HeavyPistons:Layer6
+    100018: HeavyPistons:Layer7
+    100020: HeavyPistons:Layer8
+    100022: HeavyPistons:Layer9
+    100024: Hill:Layer1
+    100026: Hill:Layer2
+    100028: //RootNode
+    100030: LaunchPad:Layer1
+    100032: LaunchPad:Layer2
+    100034: LaunchPad:Layer3
+    100036: LaunchPad:Layer4
+    100038: LaunchPad:Layer5
+    100040: LaunchPad:Layer6
+    100042: LaunchPad:Layer7
+    100044: LaunchPad:Layer8
+    100046: Null_Center
+    100048: Null_Frame1
+    100050: Null_Frame2
+    100052: Null_Frame3
+    100054: Null_Frame4
+    100056: Null_Heavy1
+    100058: Null_Heavy10
+    100060: Null_Heavy11
+    100062: Null_Heavy12
+    100064: Null_Heavy2
+    100066: Null_Heavy3
+    100068: Null_Heavy4
+    100070: Null_Heavy5
+    100072: Null_Heavy6
+    100074: Null_Heavy7
+    100076: Null_Heavy8
+    100078: Null_Heavy9
+    100080: Null_Piston1a
+    100082: Null_Piston1b
+    100084: Null_Piston1c
+    100086: Null_Piston2a
+    100088: Null_Piston2b
+    100090: Null_Piston2c
+    100092: Null_Piston3a
+    100094: Null_Piston3b
+    100096: Null_Piston3c
+    100098: Null_Piston4a
+    100100: Null_Piston4b
+    100102: Null_Piston4c
+    100104: Null_Pistons2_1
+    100106: Null_Pistons2_2
+    100108: Null_Pistons2_3
+    100110: Null_Pistons2_4
+    100112: Null_Pistons2_5
+    100114: Null_Pistons2_6
+    100116: Null_Pistons2_7
+    100118: Null_Pistons2_8
+    100120: Null_Pistons2_9
+    100122: Null_Power_Tower
+    100124: Null_Tower1
+    100126: Null_Tower2
+    100128: Pistons2:Layer1
+    100130: Pistons2:Layer2
+    100132: Pistons2:Layer3
+    100134: Pistons2:Layer4
+    100136: Pistons2:Layer5
+    100138: Pistons2:Layer6
+    100140: Pistons2:Layer7
+    100142: Pistons2:Layer8
+    100144: Pistons2:Layer9
+    100146: PowerTower
+    100148: SmallPistons:Layer1
+    100150: SmallPistons:Layer10
+    100152: SmallPistons:Layer11
+    100154: SmallPistons:Layer12
+    100156: SmallPistons:Layer2
+    100158: SmallPistons:Layer3
+    100160: SmallPistons:Layer4
+    100162: SmallPistons:Layer5
+    100164: SmallPistons:Layer6
+    100166: SmallPistons:Layer7
+    100168: SmallPistons:Layer8
+    100170: SmallPistons:Layer9
+    100172: soyuz3
+    100174: soyuz3_MeshPart0
+    100176: soyuz3_MeshPart1
+    100178: Towers:Layer1
+    100180: Towers:Layer2
+    100182: Towers:Layer3
+    100184: Towers:Layer4
+    100186: Towers:Layer5
+    100188: Towers:Layer6
+    400000: HeavyPistons:Layer1
+    400002: HeavyPistons:Layer10
+    400004: HeavyPistons:Layer11
+    400006: HeavyPistons:Layer12
+    400008: HeavyPistons:Layer2
+    400010: HeavyPistons:Layer3
+    400012: HeavyPistons:Layer4
+    400014: HeavyPistons:Layer5
+    400016: HeavyPistons:Layer6
+    400018: HeavyPistons:Layer7
+    400020: HeavyPistons:Layer8
+    400022: HeavyPistons:Layer9
+    400024: Hill:Layer1
+    400026: Hill:Layer2
+    400028: //RootNode
+    400030: LaunchPad:Layer1
+    400032: LaunchPad:Layer2
+    400034: LaunchPad:Layer3
+    400036: LaunchPad:Layer4
+    400038: LaunchPad:Layer5
+    400040: LaunchPad:Layer6
+    400042: LaunchPad:Layer7
+    400044: LaunchPad:Layer8
+    400046: Null_Center
+    400048: Null_Frame1
+    400050: Null_Frame2
+    400052: Null_Frame3
+    400054: Null_Frame4
+    400056: Null_Heavy1
+    400058: Null_Heavy10
+    400060: Null_Heavy11
+    400062: Null_Heavy12
+    400064: Null_Heavy2
+    400066: Null_Heavy3
+    400068: Null_Heavy4
+    400070: Null_Heavy5
+    400072: Null_Heavy6
+    400074: Null_Heavy7
+    400076: Null_Heavy8
+    400078: Null_Heavy9
+    400080: Null_Piston1a
+    400082: Null_Piston1b
+    400084: Null_Piston1c
+    400086: Null_Piston2a
+    400088: Null_Piston2b
+    400090: Null_Piston2c
+    400092: Null_Piston3a
+    400094: Null_Piston3b
+    400096: Null_Piston3c
+    400098: Null_Piston4a
+    400100: Null_Piston4b
+    400102: Null_Piston4c
+    400104: Null_Pistons2_1
+    400106: Null_Pistons2_2
+    400108: Null_Pistons2_3
+    400110: Null_Pistons2_4
+    400112: Null_Pistons2_5
+    400114: Null_Pistons2_6
+    400116: Null_Pistons2_7
+    400118: Null_Pistons2_8
+    400120: Null_Pistons2_9
+    400122: Null_Power_Tower
+    400124: Null_Tower1
+    400126: Null_Tower2
+    400128: Pistons2:Layer1
+    400130: Pistons2:Layer2
+    400132: Pistons2:Layer3
+    400134: Pistons2:Layer4
+    400136: Pistons2:Layer5
+    400138: Pistons2:Layer6
+    400140: Pistons2:Layer7
+    400142: Pistons2:Layer8
+    400144: Pistons2:Layer9
+    400146: PowerTower
+    400148: SmallPistons:Layer1
+    400150: SmallPistons:Layer10
+    400152: SmallPistons:Layer11
+    400154: SmallPistons:Layer12
+    400156: SmallPistons:Layer2
+    400158: SmallPistons:Layer3
+    400160: SmallPistons:Layer4
+    400162: SmallPistons:Layer5
+    400164: SmallPistons:Layer6
+    400166: SmallPistons:Layer7
+    400168: SmallPistons:Layer8
+    400170: SmallPistons:Layer9
+    400172: soyuz3
+    400174: soyuz3_MeshPart0
+    400176: soyuz3_MeshPart1
+    400178: Towers:Layer1
+    400180: Towers:Layer2
+    400182: Towers:Layer3
+    400184: Towers:Layer4
+    400186: Towers:Layer5
+    400188: Towers:Layer6
+    2300000: HeavyPistons:Layer1
+    2300002: HeavyPistons:Layer10
+    2300004: HeavyPistons:Layer11
+    2300006: HeavyPistons:Layer12
+    2300008: HeavyPistons:Layer2
+    2300010: HeavyPistons:Layer3
+    2300012: HeavyPistons:Layer4
+    2300014: HeavyPistons:Layer5
+    2300016: HeavyPistons:Layer6
+    2300018: HeavyPistons:Layer7
+    2300020: HeavyPistons:Layer8
+    2300022: HeavyPistons:Layer9
+    2300024: Hill:Layer1
+    2300026: Hill:Layer2
+    2300028: LaunchPad:Layer1
+    2300030: LaunchPad:Layer2
+    2300032: LaunchPad:Layer3
+    2300034: LaunchPad:Layer4
+    2300036: LaunchPad:Layer5
+    2300038: LaunchPad:Layer6
+    2300040: LaunchPad:Layer7
+    2300042: LaunchPad:Layer8
+    2300044: Pistons2:Layer1
+    2300046: Pistons2:Layer2
+    2300048: Pistons2:Layer3
+    2300050: Pistons2:Layer4
+    2300052: Pistons2:Layer5
+    2300054: Pistons2:Layer6
+    2300056: Pistons2:Layer7
+    2300058: Pistons2:Layer8
+    2300060: Pistons2:Layer9
+    2300062: PowerTower
+    2300064: SmallPistons:Layer1
+    2300066: SmallPistons:Layer10
+    2300068: SmallPistons:Layer11
+    2300070: SmallPistons:Layer12
+    2300072: SmallPistons:Layer2
+    2300074: SmallPistons:Layer3
+    2300076: SmallPistons:Layer4
+    2300078: SmallPistons:Layer5
+    2300080: SmallPistons:Layer6
+    2300082: SmallPistons:Layer7
+    2300084: SmallPistons:Layer8
+    2300086: SmallPistons:Layer9
+    2300088: soyuz3_MeshPart0
+    2300090: soyuz3_MeshPart1
+    2300092: Towers:Layer1
+    2300094: Towers:Layer2
+    2300096: Towers:Layer3
+    2300098: Towers:Layer4
+    2300100: Towers:Layer5
+    2300102: Towers:Layer6
+    3300000: HeavyPistons:Layer1
+    3300002: HeavyPistons:Layer10
+    3300004: HeavyPistons:Layer11
+    3300006: HeavyPistons:Layer12
+    3300008: HeavyPistons:Layer2
+    3300010: HeavyPistons:Layer3
+    3300012: HeavyPistons:Layer4
+    3300014: HeavyPistons:Layer5
+    3300016: HeavyPistons:Layer6
+    3300018: HeavyPistons:Layer7
+    3300020: HeavyPistons:Layer8
+    3300022: HeavyPistons:Layer9
+    3300024: Hill:Layer1
+    3300026: Hill:Layer2
+    3300028: LaunchPad:Layer1
+    3300030: LaunchPad:Layer2
+    3300032: LaunchPad:Layer3
+    3300034: LaunchPad:Layer4
+    3300036: LaunchPad:Layer5
+    3300038: LaunchPad:Layer6
+    3300040: LaunchPad:Layer7
+    3300042: LaunchPad:Layer8
+    3300044: Pistons2:Layer1
+    3300046: Pistons2:Layer2
+    3300048: Pistons2:Layer3
+    3300050: Pistons2:Layer4
+    3300052: Pistons2:Layer5
+    3300054: Pistons2:Layer6
+    3300056: Pistons2:Layer7
+    3300058: Pistons2:Layer8
+    3300060: Pistons2:Layer9
+    3300062: PowerTower
+    3300064: SmallPistons:Layer1
+    3300066: SmallPistons:Layer10
+    3300068: SmallPistons:Layer11
+    3300070: SmallPistons:Layer12
+    3300072: SmallPistons:Layer2
+    3300074: SmallPistons:Layer3
+    3300076: SmallPistons:Layer4
+    3300078: SmallPistons:Layer5
+    3300080: SmallPistons:Layer6
+    3300082: SmallPistons:Layer7
+    3300084: SmallPistons:Layer8
+    3300086: SmallPistons:Layer9
+    3300088: soyuz3_MeshPart0
+    3300090: soyuz3_MeshPart1
+    3300092: Towers:Layer1
+    3300094: Towers:Layer2
+    3300096: Towers:Layer3
+    3300098: Towers:Layer4
+    3300100: Towers:Layer5
+    3300102: Towers:Layer6
+    4300000: LaunchPad:Layer1
+    4300002: LaunchPad:Layer2
+    4300004: LaunchPad:Layer3
+    4300006: LaunchPad:Layer4
+    4300008: LaunchPad:Layer6
+    4300010: SmallPistons:Layer4
+    4300012: LaunchPad:Layer7
+    4300014: SmallPistons:Layer1
+    4300016: LaunchPad:Layer8
+    4300018: SmallPistons:Layer10
+    4300020: LaunchPad:Layer5
+    4300022: SmallPistons:Layer7
+    4300024: Towers:Layer1
+    4300026: Towers:Layer2
+    4300028: Towers:Layer3
+    4300030: HeavyPistons:Layer9
+    4300032: HeavyPistons:Layer12
+    4300034: Towers:Layer4
+    4300036: Towers:Layer5
+    4300038: Towers:Layer6
+    4300040: HeavyPistons:Layer3
+    4300042: HeavyPistons:Layer6
+    4300044: soyuz3_MeshPart0
+    4300046: soyuz3_MeshPart1
+    4300048: Hill:Layer1
+    4300050: Hill:Layer2
+    4300052: PowerTower
+    4300054: Pistons2:Layer1
+    4300056: Pistons2:Layer4
+    4300058: Pistons2:Layer7
+    4300060: SmallPistons:Layer3
+    4300062: SmallPistons:Layer2
+    4300064: SmallPistons:Layer6
+    4300066: SmallPistons:Layer5
+    4300068: SmallPistons:Layer9
+    4300070: SmallPistons:Layer8
+    4300072: SmallPistons:Layer12
+    4300074: SmallPistons:Layer11
+    4300076: Pistons2:Layer3
+    4300078: Pistons2:Layer2
+    4300080: Pistons2:Layer6
+    4300082: Pistons2:Layer5
+    4300084: Pistons2:Layer9
+    4300086: Pistons2:Layer8
+    4300088: HeavyPistons:Layer1
+    4300090: HeavyPistons:Layer2
+    4300092: HeavyPistons:Layer4
+    4300094: HeavyPistons:Layer5
+    4300096: HeavyPistons:Layer7
+    4300098: HeavyPistons:Layer8
+    4300100: HeavyPistons:Layer10
+    4300102: HeavyPistons:Layer11
+    7400000: Stage1
+    7400002: Expand
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Expand
+      takeName: Base Stack
+      firstFrame: 0
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Hill:Layer1
+        weight: 1
+      - path: Hill:Layer2
+        weight: 1
+      - path: LaunchPad:Layer1
+        weight: 1
+      - path: LaunchPad:Layer2
+        weight: 1
+      - path: LaunchPad:Layer3
+        weight: 1
+      - path: LaunchPad:Layer4
+        weight: 1
+      - path: Null_Center
+        weight: 1
+      - path: Null_Center/Null_Frame1
+        weight: 1
+      - path: Null_Center/Null_Frame1/LaunchPad:Layer6
+        weight: 1
+      - path: Null_Center/Null_Frame1/LaunchPad:Layer6/Null_Piston2a
+        weight: 1
+      - path: Null_Center/Null_Frame1/LaunchPad:Layer6/Null_Piston2a/SmallPistons:Layer4
+        weight: 1
+      - path: Null_Center/Null_Frame2
+        weight: 1
+      - path: Null_Center/Null_Frame2/LaunchPad:Layer7
+        weight: 1
+      - path: Null_Center/Null_Frame2/LaunchPad:Layer7/Null_Piston1a
+        weight: 1
+      - path: Null_Center/Null_Frame2/LaunchPad:Layer7/Null_Piston1a/SmallPistons:Layer1
+        weight: 1
+      - path: Null_Center/Null_Frame3
+        weight: 1
+      - path: Null_Center/Null_Frame3/LaunchPad:Layer8
+        weight: 1
+      - path: Null_Center/Null_Frame3/LaunchPad:Layer8/Null_Piston4a
+        weight: 1
+      - path: Null_Center/Null_Frame3/LaunchPad:Layer8/Null_Piston4a/SmallPistons:Layer10
+        weight: 1
+      - path: Null_Center/Null_Frame4
+        weight: 1
+      - path: Null_Center/Null_Frame4/LaunchPad:Layer5
+        weight: 1
+      - path: Null_Center/Null_Frame4/LaunchPad:Layer5/Null_Piston3a
+        weight: 1
+      - path: Null_Center/Null_Frame4/LaunchPad:Layer5/Null_Piston3a/SmallPistons:Layer7
+        weight: 1
+      - path: Null_Heavy1
+        weight: 1
+      - path: Null_Heavy1/HeavyPistons:Layer1
+        weight: 1
+      - path: Null_Heavy1/HeavyPistons:Layer1/Null_Heavy2
+        weight: 1
+      - path: Null_Heavy1/HeavyPistons:Layer1/Null_Heavy2/HeavyPistons:Layer2
+        weight: 1
+      - path: Null_Heavy4
+        weight: 1
+      - path: Null_Heavy4/HeavyPistons:Layer4
+        weight: 1
+      - path: Null_Heavy4/HeavyPistons:Layer4/Null_Heavy5
+        weight: 1
+      - path: Null_Heavy4/HeavyPistons:Layer4/Null_Heavy5/HeavyPistons:Layer5
+        weight: 1
+      - path: Null_Heavy7
+        weight: 1
+      - path: Null_Heavy7/HeavyPistons:Layer7
+        weight: 1
+      - path: Null_Heavy7/HeavyPistons:Layer7/Null_Heavy8
+        weight: 1
+      - path: Null_Heavy7/HeavyPistons:Layer7/Null_Heavy8/HeavyPistons:Layer8
+        weight: 1
+      - path: Null_Heavy10
+        weight: 1
+      - path: Null_Heavy10/HeavyPistons:Layer10
+        weight: 1
+      - path: Null_Heavy10/HeavyPistons:Layer10/Null_Heavy11
+        weight: 1
+      - path: Null_Heavy10/HeavyPistons:Layer10/Null_Heavy11/HeavyPistons:Layer11
+        weight: 1
+      - path: Null_Piston1c
+        weight: 1
+      - path: Null_Piston1c/SmallPistons:Layer3
+        weight: 1
+      - path: Null_Piston1c/SmallPistons:Layer3/Null_Piston1b
+        weight: 1
+      - path: Null_Piston1c/SmallPistons:Layer3/Null_Piston1b/SmallPistons:Layer2
+        weight: 1
+      - path: Null_Piston2c
+        weight: 1
+      - path: Null_Piston2c/SmallPistons:Layer6
+        weight: 1
+      - path: Null_Piston2c/SmallPistons:Layer6/Null_Piston2b
+        weight: 1
+      - path: Null_Piston2c/SmallPistons:Layer6/Null_Piston2b/SmallPistons:Layer5
+        weight: 1
+      - path: Null_Piston3c
+        weight: 1
+      - path: Null_Piston3c/SmallPistons:Layer9
+        weight: 1
+      - path: Null_Piston3c/SmallPistons:Layer9/Null_Piston3b
+        weight: 1
+      - path: Null_Piston3c/SmallPistons:Layer9/Null_Piston3b/SmallPistons:Layer8
+        weight: 1
+      - path: Null_Piston4c
+        weight: 1
+      - path: Null_Piston4c/SmallPistons:Layer12
+        weight: 1
+      - path: Null_Piston4c/SmallPistons:Layer12/Null_Piston4b
+        weight: 1
+      - path: Null_Piston4c/SmallPistons:Layer12/Null_Piston4b/SmallPistons:Layer11
+        weight: 1
+      - path: Null_Pistons2_1
+        weight: 1
+      - path: Null_Pistons2_1/Pistons2:Layer3
+        weight: 1
+      - path: Null_Pistons2_1/Pistons2:Layer3/Null_Pistons2_2
+        weight: 1
+      - path: Null_Pistons2_1/Pistons2:Layer3/Null_Pistons2_2/Pistons2:Layer2
+        weight: 1
+      - path: Null_Pistons2_4
+        weight: 1
+      - path: Null_Pistons2_4/Pistons2:Layer6
+        weight: 1
+      - path: Null_Pistons2_4/Pistons2:Layer6/Null_Pistons2_5
+        weight: 1
+      - path: Null_Pistons2_4/Pistons2:Layer6/Null_Pistons2_5/Pistons2:Layer5
+        weight: 1
+      - path: Null_Pistons2_7
+        weight: 1
+      - path: Null_Pistons2_7/Pistons2:Layer9
+        weight: 1
+      - path: Null_Pistons2_7/Pistons2:Layer9/Null_Pistons2_8
+        weight: 1
+      - path: Null_Pistons2_7/Pistons2:Layer9/Null_Pistons2_8/Pistons2:Layer8
+        weight: 1
+      - path: Null_Power_Tower
+        weight: 1
+      - path: Null_Power_Tower/PowerTower
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_3
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_3/Pistons2:Layer1
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_6
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_6/Pistons2:Layer4
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_9
+        weight: 1
+      - path: Null_Power_Tower/PowerTower/Null_Pistons2_9/Pistons2:Layer7
+        weight: 1
+      - path: Null_Tower1
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Null_Heavy9
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Null_Heavy9/HeavyPistons:Layer9
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Null_Heavy12
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Null_Heavy12/HeavyPistons:Layer12
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Towers:Layer2
+        weight: 1
+      - path: Null_Tower1/Towers:Layer1/Towers:Layer2/Towers:Layer3
+        weight: 1
+      - path: Null_Tower2
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Null_Heavy3
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Null_Heavy3/HeavyPistons:Layer3
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Null_Heavy6
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Null_Heavy6/HeavyPistons:Layer6
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Towers:Layer5
+        weight: 1
+      - path: Null_Tower2/Towers:Layer4/Towers:Layer5/Towers:Layer6
+        weight: 1
+      - path: soyuz3
+        weight: 1
+      - path: soyuz3/soyuz3_MeshPart0
+        weight: 1
+      - path: soyuz3/soyuz3_MeshPart1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
