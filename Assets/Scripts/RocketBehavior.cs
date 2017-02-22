@@ -58,8 +58,8 @@ public class RocketBehavior : MonoBehaviour {
             ScreenChanges.launch_sounds();
 
             velocity = RocketState.fuel * 5;
-			angleRad = RocketState.angle * ((float)Math.PI) / 180;
-			currAngle = RocketState.angle * ((float)Math.PI) / 180;
+			angleRad = (180 - RocketState.angle) * ((float)Math.PI) / 180;
+			currAngle = (180 - RocketState.angle) * ((float)Math.PI) / 180;
 		}
 
 		// Handles moving rocket
