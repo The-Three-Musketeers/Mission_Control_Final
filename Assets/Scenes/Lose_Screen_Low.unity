@@ -199,7 +199,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3ea834bcd86a91b4d9846a1bce16566e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 27b887f42890640489e3569c20dec270, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -467,7 +467,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: YES
+  m_Text: OK
 --- !u!222 &735667724
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0bd126bdfd46e3e4592c0d4bf6c3f59c, type: 3}
+    m_Font: {fileID: 12800000, guid: 1fceb414b0c9e43479d6ca9df2394f93, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
@@ -847,11 +847,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Oh no!
+  m_Text: 'You were too
 
-    You flew too low!
-
-    Try again?'
+    low.'
 --- !u!222 &1534123319
 CanvasRenderer:
   m_ObjectHideFlags: 0

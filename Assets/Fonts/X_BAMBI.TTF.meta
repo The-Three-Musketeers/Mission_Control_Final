@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1fceb414b0c9e43479d6ca9df2394f93
+timeCreated: 1487885270
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Bambi Bold
+  fontNames:
+  - Bambi Bold
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
