@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script listens for the return key, plays the animation,
+//and signals to the RocketBehavior class to launch the rocket
+//when it is done.
 public class LaunchPad : MonoBehaviour {
 
+    public static bool animationDone = false;
+    bool button_hit_flag = false;
 
-
-    void Start () {
-    }
-
-	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            var animation = GetComponent<Animation>();
+        Animation animation = GetComponent<Animation>();
+        if (Input.GetKeyDown(KeyCode.Return)) {
             animation.Play();
+            RocketBehavior.launch = true;
+            button_hit_flag = true;
         }
-	}
+        //When it's done, signal to RocketBehavior.cs that it is done.
+        if (button_hit_flag == true && animation.isPlaying == false) {
+            animationDone = true;
+            button_hit_flag = false;
+        }
+    }
+
+    public static void reset() {
+        animationDone = false;
+    }
 }

@@ -10,16 +10,14 @@ public class Manual_Click : MonoBehaviour {
     public static string buttonName = "Button";
     public static bool clicked = false;
 
-    void Update()
-    {
-        if (clicked)
-        {
+    void Update() {
+        //If the button is to be clicked, invoke a click event and reset
+        if (clicked) {
             GameObject.Find(buttonName).GetComponent<Button>().onClick.Invoke();
             reset();
         }
     }
-    public static void click()
-    {
+    public static void click() {
         clicked = true;
     }
 
@@ -27,8 +25,7 @@ public class Manual_Click : MonoBehaviour {
         buttonName = new_name;
     }
 
-    public static void reset()
-    {
+    public static void reset() {
         buttonName = "Button";
         clicked = false;
         Selector.reset();

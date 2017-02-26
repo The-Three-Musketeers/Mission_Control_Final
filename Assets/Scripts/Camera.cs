@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour {
+//This script enables camera tracking for the rocket. Attach
+//it to the main camera in the gameplay screen.
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+public class Camera : MonoBehaviour {
 	
 	// Update is called once per frame
 	public Transform target = null;

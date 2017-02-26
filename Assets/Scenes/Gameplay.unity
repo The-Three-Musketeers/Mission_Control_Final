@@ -485,7 +485,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 9452195cee6fc4aa595fc94f04d151b6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 500
+      value: 505
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9452195cee6fc4aa595fc94f04d151b6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -948,8 +948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSyst: {fileID: 1807854863}
   cam: {fileID: 1369326895}
-  min_height: 6000
-  max_height: 10000
+  min_height: 1500000
+  max_height: 3600000
 --- !u!4 &1361369595 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 9452195cee6fc4aa595fc94f04d151b6, type: 3}

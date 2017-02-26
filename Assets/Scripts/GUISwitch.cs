@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 using System.Collections;
 
+//This script disables the GUI for after the rocket launches.
+//Attach it to the ScriptManager object in the Gameplay screen.
+
 public class GUISwitch : MonoBehaviour {
 
     //This static function switches the GUI into launch mode when the rocket is launched.
