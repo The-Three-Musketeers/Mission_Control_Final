@@ -90,7 +90,7 @@ public class ScreenChanges : MonoBehaviour {
 
     //Change Music when you get to the gameplay, and also when you leave that screen
     private static void changeMusic() {
-        if (SceneManager.GetActiveScene().name == "SelectRocketScreen") {
+        if (SceneManager.GetActiveScene().name == "Debriefing_Mars" || SceneManager.GetActiveScene().name == "Debriefing_Shuttle" || SceneManager.GetActiveScene().name == "Debriefing_Satellite") {
             music1.Stop();
             music2.Play();
         }

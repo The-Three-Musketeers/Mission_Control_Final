@@ -21,14 +21,6 @@ public class ColorChange : MonoBehaviour {
         ChangeColor(buttonID);
     }
 
-    // Update is called once per frame
-    void Update () {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            ChangeColor(counter++);
-        }
-	}
-
     public static void ChangeColor(int colorIndex)
     {
         var rocket = GameObject.Find("rocket");

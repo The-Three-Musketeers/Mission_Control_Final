@@ -43,13 +43,11 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     //Win/Lose conditions:
-    public int min_height = 1500000;
-    public int max_height = 3500000;
+    public int min_height = 2640000;
+    public int max_height = 5280000;
 
 	// Update is called once per frame
 	void FixedUpdate () {
-
-        print(RocketState.fuel);
  
         initialX = transform.position.x;
         initialY = transform.position.y;

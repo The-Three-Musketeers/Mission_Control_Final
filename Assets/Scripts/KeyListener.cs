@@ -27,7 +27,7 @@ public class KeyListener : MonoBehaviour {
     //Up Arrow - See 'Manual_Slider.cs' for details
     //Down Arrow - Ditto
 
-    //This doesn't listen for the rocket launch, color change,
+    //This doesn't listen for the rocket launch,
     //drop fuel, or launch pad animation keys. Those are handled
     //in their respective scripts. This one is specifically for 
     //dealing with the UI.
@@ -42,9 +42,11 @@ public class KeyListener : MonoBehaviour {
     }
 
     void Update() {
+        //Quit with Q
         if (Input.GetKeyDown(KeyCode.Q)) {
             Application.Quit();
         }
+        //Option Selection Keys
         if (Input.GetKeyDown(KeyCode.A)) {
             Selector.prev_option();
         }
@@ -54,6 +56,17 @@ public class KeyListener : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S)) {
             Manual_Click.click();
         }
+        //Color Changing Keys
+        if (Input.GetKeyDown(KeyCode.J)) {
+            ColorChange.ChangeColor(0);
+        }
+        if (Input.GetKeyDown(KeyCode.K)) {
+            ColorChange.ChangeColor(1);
+        }
+        if (Input.GetKeyDown(KeyCode.L)) {
+            ColorChange.ChangeColor(2);
+        }
+        //Fuel and Angle Controllers
         if (Input.GetKey(KeyCode.F)) {
             GameState.select_fuel();
         }
