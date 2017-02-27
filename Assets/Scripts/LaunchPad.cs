@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +9,20 @@ public class LaunchPad : MonoBehaviour {
 
     public static bool animationDone = false;
     bool button_hit_flag = false;
+    public float animationSpeed;
+    public Animation _animation;
+
+    void Start () {
+        _animation = GetComponent<Animation>();
+        animationSpeed = 5f;
+    }
 
 	// Update is called once per frame
-	void Update () {
+    void Update () {
         Animation animation = GetComponent<Animation>();
         if (Input.GetKeyDown(KeyCode.Return)) {
-            animation.Play();
+	    _animation["Expand"].speed = animationSpeed;
+            _animation.Play();
             RocketBehavior.launch = true;
             button_hit_flag = true;
         }
