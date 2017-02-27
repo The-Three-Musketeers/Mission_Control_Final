@@ -27,7 +27,7 @@ public class LaunchPad : MonoBehaviour {
             button_hit_flag = true;
         }
         //When it's done, signal to RocketBehavior.cs that it is done.
-        if (button_hit_flag == true && animation.isPlaying == false) {
+        if (button_hit_flag == true && _animation.isPlaying == false) {
             animationDone = true;
             button_hit_flag = false;
         }
