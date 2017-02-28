@@ -43,8 +43,8 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     //Win/Lose conditions:
-    public int min_height = 2640000;
-    public int max_height = 5280000;
+    public int min_height = 3300000;
+    public int max_height = 6600000;
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -57,6 +57,7 @@ public class RocketBehavior : MonoBehaviour {
 
         if (launch == false) {
             //Set the initial conditions for the launch
+            Camera.reset();
             velocity = RocketState.fuel * 5;
 			angleRad = (180 - RocketState.angle) * ((float)Math.PI) / 180;
 			currAngle = (180 - RocketState.angle) * ((float)Math.PI) / 180;
@@ -73,6 +74,8 @@ public class RocketBehavior : MonoBehaviour {
 
 		// Handles moving rocket
 		if (particleSyst.isPlaying) {
+            //Switch camera position
+            Camera.launchShift();
             // update position of rocket
             Vector3 dVector = (transform.position - prevPos).normalized;
 			Vector3 RocketDirectionVector = (new Vector3((float) Math.Cos(angleRad), (float) Math.Sin(angleRad), 0).normalized)*velocity;
@@ -104,23 +107,31 @@ public class RocketBehavior : MonoBehaviour {
             transform.position = move;
             float new_y_pos = transform.position.y;
 
+            //Check for leaving the atmosphere
+            if (new_y_pos > 3300000) {
+                Skybox.leavingAtmosphere();
+            }
+
             if (new_y_pos - old_y_pos <= -10) {
                 //If it's too low, switch contexts to the losing screen
                 if (new_y_pos < min_height) {
                     launch = false;
                     ScreenChanges.launch_sounds();
+                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Lose_Screen_Low");
                 }
                 //If it's too high, switch contexts to the losing screen
                 else if (new_y_pos > max_height) {
                     launch = false;
                     ScreenChanges.launch_sounds();
+                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Lose_Screen_High");
                 }
                 //If it's within the window of success, switch contexts to the winning screen
                 else {
                     launch = false;
                     ScreenChanges.launch_sounds();
+                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Win_Screen");
                 }
             }

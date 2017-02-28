@@ -10,11 +10,19 @@ public class Camera : MonoBehaviour {
 	// Update is called once per frame
 	public Transform target = null;
 	int distance = -1000;
-	float lift = 17.0f;
+	static float lift = 17f;
 
 	void LateUpdate() {
 		transform.position = target.position + new Vector3(0,lift,distance);
 		transform.LookAt(target);
 	}
+
+    public static void launchShift() {
+        lift = -575f;
+    }
+
+    public static void reset() {
+        lift = 17f;
+    }
 
 }
