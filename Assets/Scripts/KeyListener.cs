@@ -27,17 +27,26 @@ public class KeyListener : MonoBehaviour {
     //Up Arrow - See 'Manual_Slider.cs' for details
     //Down Arrow - Ditto
 
+    //This doesn't listen for the rocket launch,
+    //drop fuel, or launch pad animation keys. Those are handled
+    //in their respective scripts. This one is specifically for 
+    //dealing with the UI.
+
+    //Additionally, this is only for keyboard inputs, which are
+    //intended only for developer use.
+
     void Start() {
-        if (serial != null)
-        {
+        if (serial != null) {
             serial.OnButtonPressed += Serial_OnButtonPressed;
         }
     }
 
     void Update() {
+        //Quit with Q
         if (Input.GetKeyDown(KeyCode.Q)) {
             Application.Quit();
         }
+        //Option Selection Keys
         if (Input.GetKeyDown(KeyCode.A)) {
             Selector.prev_option();
         }
@@ -47,6 +56,17 @@ public class KeyListener : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S)) {
             Manual_Click.click();
         }
+        //Color Changing Keys
+        if (Input.GetKeyDown(KeyCode.J)) {
+            ColorChange.ChangeColor(0);
+        }
+        if (Input.GetKeyDown(KeyCode.K)) {
+            ColorChange.ChangeColor(1);
+        }
+        if (Input.GetKeyDown(KeyCode.L)) {
+            ColorChange.ChangeColor(2);
+        }
+        //Fuel and Angle Controllers
         if (Input.GetKey(KeyCode.F)) {
             GameState.select_fuel();
         }
@@ -61,22 +81,20 @@ public class KeyListener : MonoBehaviour {
         }
     }
 
-    private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg)
-    {
-        if (arg.Value == 0)
-        {
+    //This function handles the mapping of different Arduino inputs,
+    //noted as arg.Value, into actual function calls for different parts
+    //of the game.
+    private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
+        if (arg.Value == 0) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Manual_Click.click());
         }
-        if (arg.Value == 1)
-        {
+        if (arg.Value == 1) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
         }
-        if (arg.Value == 2)
-        {
+        if (arg.Value == 2) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
         }
-        if (arg.Value == 3)
-        {
+        if (arg.Value == 3) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Application.Quit());
         }
     }

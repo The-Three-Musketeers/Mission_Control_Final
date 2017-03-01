@@ -3,6 +3,7 @@ using System.Collections;
 
 //This script provides functionality for manually selecting from three
 //options. It features wrap-around handling.
+//This goes on the ScriptManager object
 
 public class Selector : MonoBehaviour {
 

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Debriefing_Shuttle.unity
   - enabled: 1
     path: Assets/Scenes/Debriefing_Mars.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SelectRocketScreen.unity
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity

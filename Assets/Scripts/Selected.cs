@@ -3,6 +3,7 @@ using System.Collections;
 
 //This script handles how a button should behave when it is selected, specifically that it should enlarge and wait
 //to be clicked, and how it should behave when it is not selected, specifially that it should do nothing.
+//This goes on the individual options (buttons) that you want to select between
 
 public class Selected : MonoBehaviour {
 
