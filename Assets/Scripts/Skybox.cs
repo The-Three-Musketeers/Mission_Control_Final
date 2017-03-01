@@ -24,10 +24,13 @@ public class Skybox : MonoBehaviour {
     public float maxAmbient = 1f;
     public float minAmbient = 0f;
     public float minAmbientPoint = -0.2f;
-    public float dayAtmosphereThickeness = 0.4f;
-    public float nightAtmosphereThickness = 0.87f;
-    public static Vector3 dayRotateSpeed = new Vector3(-0.123f, 0, 0); //Make this static so we can speed up the cycle as the rocket nears space
+    public float dayAtmosphereThickness = 1.5f;
+    public float nightAtmosphereThickness = 1.5f;
+    public static float globalAtmosphereThickness = 1.5f;
+    public Vector3 dayRotateSpeed = new Vector3(-0.123f, 0, 0); //Make this static so we can speed up the cycle as the rocket nears space
     public Vector3 nightRotateSpeed = new Vector3(-0.123f, 0, 0);
+
+    private static bool launching = false;
 
 	// Use this for initialization
 	void Start () {
@@ -53,8 +56,13 @@ public class Skybox : MonoBehaviour {
         RenderSettings.ambientIntensity = i;
         mainLight.color = nightDayColor.Evaluate(dot);
         RenderSettings.ambientLight = mainLight.color;
-        i = ((dayAtmosphereThickeness - nightAtmosphereThickness) * dot) + nightAtmosphereThickness;
-        sky.SetFloat("_AtmosphereThickness", i);
+        if (launching) {
+            globalAtmosphereThickness -= 0.003f;
+            if (globalAtmosphereThickness <= 0) {
+                globalAtmosphereThickness = 0;
+            }
+        }
+        sky.SetFloat("_AtmosphereThickness", globalAtmosphereThickness);
         if (dot > 0) {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
         }
@@ -64,10 +72,11 @@ public class Skybox : MonoBehaviour {
     }
 
     public static void leavingAtmosphere() {
-        dayRotateSpeed = new Vector3(-10, 0, 0);
+        launching = true;
     }
 
     public static void reset() {
-        dayRotateSpeed = new Vector3(-0.123f, 0, 0);
+        launching = false;
+        globalAtmosphereThickness = 1.5f;
     }
 }

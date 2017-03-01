@@ -78,6 +78,7 @@ public class RocketBehavior : MonoBehaviour {
 		if (particleSyst.isPlaying) {
             //Switch camera position
             Camera.launchShift();
+            StartExplosion.Explode();
             // update position of rocket
 			dVector = (transform.position - prevPos).normalized;
 			Vector3 RocketDirectionVector = (new Vector3((float) Math.Cos(angleRad), (float) Math.Sin(angleRad), 0).normalized)*velocity;
@@ -96,7 +97,6 @@ public class RocketBehavior : MonoBehaviour {
 			}
             //Reorient the camera
             GameObject.Find("HUD").transform.forward = cam.forward;
-
 			// update position variables
 			prevPos = transform.position;
             float old_y_pos = transform.position.y;
@@ -104,7 +104,7 @@ public class RocketBehavior : MonoBehaviour {
             float new_y_pos = transform.position.y;
 
             //Check for leaving the atmosphere
-            if (new_y_pos > 3300000) {
+            if (new_y_pos > 33000) {
                 Skybox.leavingAtmosphere();
             }
 
