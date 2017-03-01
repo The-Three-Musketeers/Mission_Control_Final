@@ -37,6 +37,7 @@ public class RocketBehavior : MonoBehaviour {
     //Time variables for segmenting the launch
 	float gameTime = 0f;
 	float time = 0f;
+	float prevTime = 0f;
 	float timeMult = 0f;
 
     //For determing whether or not the rocket is turning
@@ -131,21 +132,27 @@ public class RocketBehavior : MonoBehaviour {
                     ScreenChanges.staticSpecificScene("Win_Screen");
                 }
             }
+
+			Debug.Log(((dVector.magnitude) / (time-prevTime)).ToString());
         }
 
 		// Handles dropping fuel pods
-		if ( (Input.GetKeyDown(KeyCode.Space)) && (fuelPos < numFuelPods) ) {
-			//Transform pod = transform.GetChild(0);
-			//pod.parent = null;
-			//pod.gameObject.AddComponent<Rigidbody>();
-			//fuelPos += 1;
-			changeAngle (20,dVector);
+		if ( (Input.GetKeyDown(KeyCode.Space)) ) {
+			foreach (Transform pod in transform) {
+				if (pod.name.StartsWith ("tank")) {
+					pod.parent = null;
+					pod.gameObject.AddComponent<Rigidbody>();
+					changeAngle (10,dVector);
+					break;
+				}
+			}
 		}
 	}
 
 	void changeAngle(float amount, Vector3 dVector) {
 		// change angle if fuel drop
-		velocity = (float) (Math.Sqrt ((4.9 * rocketX) / (Math.Sin (angleRad) * Math.Cos (angleRad)))); //gets curr velocity
+		//velocity = (float) (Math.Sqrt ((4.9 * rocketX) / (Math.Sin (angleRad) * Math.Cos (angleRad)))); //gets curr velocity
+		velocity = (dVector.magnitude) / (time-prevTime);
 		angleRad = (float) (Math.PI - Math.Cos(dVector.x)); //sets angleRad to current angle
 		initialX = rocketX;
 		initialY = rocketY;
@@ -183,6 +190,7 @@ public class RocketBehavior : MonoBehaviour {
 		GameObject.Find("HUD").transform.forward = cam.forward;
 		rocketX = initialX + velocity * ((float)Math.Cos(angleRad)) * time;
 		rocketY = (float) (initialY + velocity * Math.Sin(angleRad) * time - 0.5 * 9.8 * time * time);
+		prevTime = time;
 		time += Time.deltaTime;
 		return new Vector3(rocketX,rocketY,rocketZ);
 	}
