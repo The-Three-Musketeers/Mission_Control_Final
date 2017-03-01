@@ -138,14 +138,15 @@ public class RocketBehavior : MonoBehaviour {
 
 		// Handles dropping fuel pods
 		if ( (Input.GetKeyDown(KeyCode.Space)) ) {
-			foreach (Transform pod in transform) {
+			Transform[] ts = gameObject.GetComponentsInChildren<Transform>();
+			foreach (Transform pod in ts) {
 				if (pod.name.StartsWith ("tank")) {
 					pod.parent = null;
 					pod.gameObject.AddComponent<Rigidbody>();
-					changeAngle (10,dVector);
 					break;
 				}
 			}
+			changeAngle (10,dVector);
 		}
 	}
 
