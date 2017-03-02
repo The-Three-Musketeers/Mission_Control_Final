@@ -10,6 +10,7 @@ public class RocketBehavior : MonoBehaviour {
 
     //Public variables for the particle system and camera
     public ParticleSystem particleSyst = null;
+    public Transform stars;
     public Transform cam = null;
 
     //Internal variables for the dropping of fuel tanks
@@ -44,8 +45,8 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     //Win/Lose conditions:
-    public int min_height = 3300000;
-    public int max_height = 6600000;
+    public int min_height = 100000;
+    public int max_height = 400000;
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -60,6 +61,7 @@ public class RocketBehavior : MonoBehaviour {
         if (launch == false) {
             //Set the initial conditions for the launch
             Camera.reset();
+            Skybox.reset();
             velocity = RocketState.fuel;
 			angleRad = (180 - RocketState.angle) * ((float)Math.PI) / 180;
 			currAngle = (180 - RocketState.angle) * ((float)Math.PI) / 180;
@@ -79,6 +81,7 @@ public class RocketBehavior : MonoBehaviour {
 		if (particleSyst.isPlaying) {
             //Switch camera position
             Camera.launchShift();
+            stars.transform.forward = cam.forward;
             StartExplosion.Explode();
             // update position of rocket
 			dVector = (transform.position - prevPos).normalized;
@@ -105,7 +108,7 @@ public class RocketBehavior : MonoBehaviour {
             float new_y_pos = transform.position.y;
 
             //Check for leaving the atmosphere
-            if (new_y_pos > 33000) {
+            if (new_y_pos > 100000) {
                 Skybox.leavingAtmosphere();
             }
 
@@ -114,26 +117,21 @@ public class RocketBehavior : MonoBehaviour {
                 if (new_y_pos < min_height) {
                     launch = false;
                     ScreenChanges.launch_sounds();
-                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Lose_Screen_Low");
                 }
                 //If it's too high, switch contexts to the losing screen
                 else if (new_y_pos > max_height) {
                     launch = false;
                     ScreenChanges.launch_sounds();
-                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Lose_Screen_High");
                 }
                 //If it's within the window of success, switch contexts to the winning screen
                 else {
                     launch = false;
                     ScreenChanges.launch_sounds();
-                    Skybox.reset();
                     ScreenChanges.staticSpecificScene("Win_Screen");
                 }
             }
-
-			Debug.Log(((dVector.magnitude) / (time-prevTime)).ToString());
         }
 
 		// Handles dropping fuel pods

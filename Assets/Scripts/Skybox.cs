@@ -57,7 +57,7 @@ public class Skybox : MonoBehaviour {
         mainLight.color = nightDayColor.Evaluate(dot);
         RenderSettings.ambientLight = mainLight.color;
         if (launching) {
-            globalAtmosphereThickness -= 0.003f;
+            globalAtmosphereThickness -= 0.005f;
             if (globalAtmosphereThickness <= 0) {
                 globalAtmosphereThickness = 0;
             }
