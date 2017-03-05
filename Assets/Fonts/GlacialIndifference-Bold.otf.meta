@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d867ccd88441cda47a13af48340f9136
+timeCreated: 1488746241
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Glacial Indifference
+  fontNames:
+  - Glacial Indifference
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 03caa9185a14056469c96d430a072365, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

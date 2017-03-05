@@ -280,23 +280,23 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1fceb414b0c9e43479d6ca9df2394f93, type: 3}
-    m_FontSize: 98
+    m_Font: {fileID: 12800000, guid: d867ccd88441cda47a13af48340f9136, type: 3}
+    m_FontSize: 102
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 100
+    m_MaxSize: 102
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The satellite has been damaged. We need you to send a crew up there to
-    repair it. Get ready to launch the shuttle.
+  m_Text: 'The satellite has been damaged! We need you to send a crew up there to
+    repair it! Get ready to launch the shuttle!
 
 
-    Make sure you set the right angle or you''ll miss the satellite.'
+    Make sure you set the right angle or you''ll miss the satellite!'
 --- !u!222 &349321637
 CanvasRenderer:
   m_ObjectHideFlags: 0
