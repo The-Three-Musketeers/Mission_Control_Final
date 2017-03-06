@@ -49,7 +49,7 @@ public class GameState : MonoBehaviour {
 	}
 
     private void Start() {
-        if (audio2 == null) { audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>(); DontDestroyOnLoad(audio2); }
+        if (audio2 == null && GameObject.Find("Audio2") != null) { audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>(); DontDestroyOnLoad(audio2); }
     }
 
     //The Update function is for the inactivity timer only

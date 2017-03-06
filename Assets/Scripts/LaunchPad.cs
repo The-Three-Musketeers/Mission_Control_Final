@@ -20,8 +20,8 @@ public class LaunchPad : MonoBehaviour {
 	// Update is called once per frame
     void Update () {
         Animation animation = GetComponent<Animation>();
-        if (Input.GetKeyDown(KeyCode.Return)) {
-	    _animation["Expand"].speed = animationSpeed;
+        if (Input.GetKeyDown(KeyCode.Return) && RocketBehavior.launch == false) {
+	        _animation["Expand"].speed = animationSpeed;
             _animation.Play();
             RocketBehavior.launch = true;
             button_hit_flag = true;

@@ -20,13 +20,13 @@ public class ScreenChanges : MonoBehaviour {
 
     void Start() {
         //For all of the audio sources, mark them as DontDestroyOnLoad so they play between screens
-        if (audio1 == null) { audio1 = GameObject.Find("Audio1").GetComponent<AudioSource>(); DontDestroyOnLoad(audio1); }
-        if (audio2 == null) { audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>(); DontDestroyOnLoad(audio2); }
-        if (music1 == null) { music1 = GameObject.Find("Music1").GetComponent<AudioSource>(); DontDestroyOnLoad(music1); }
-        if (music2 == null) { music2 = GameObject.Find("Music2").GetComponent<AudioSource>(); DontDestroyOnLoad(music2); }
+        if (audio1 == null && GameObject.Find("Audio1") != null) { audio1 = GameObject.Find("Audio1").GetComponent<AudioSource>(); DontDestroyOnLoad(audio1); }
+        if (audio2 == null && GameObject.Find("Audio2") != null) { audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>(); DontDestroyOnLoad(audio2); }
+        if (music1 == null && GameObject.Find("Music1") != null) { music1 = GameObject.Find("Music1").GetComponent<AudioSource>(); DontDestroyOnLoad(music1); }
+        if (music2 == null && GameObject.Find("Music2") != null) { music2 = GameObject.Find("Music2").GetComponent<AudioSource>(); DontDestroyOnLoad(music2); }
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         //Play the first track on wake, but only if it is not playing and we're not on the gameplay screen
-        if (!music1.isPlaying && SceneManager.GetActiveScene().name != "Gameplay") {
+        if (music1 != null && !music1.isPlaying && SceneManager.GetActiveScene().name != "Gameplay") {
             music1.Play();
         }
     }

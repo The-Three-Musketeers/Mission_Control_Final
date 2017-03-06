@@ -116,7 +116,6 @@ public class RocketBehavior : MonoBehaviour {
                 //If it's too low, switch contexts to the losing screen
                 if (new_y_pos < min_height) {
                     launch = false;
-                    ScreenChanges.launch_sounds();
                     ScreenChanges.staticSpecificScene("Lose_Screen_Low");
                 }
                 //If it's too high, switch contexts to the losing screen
