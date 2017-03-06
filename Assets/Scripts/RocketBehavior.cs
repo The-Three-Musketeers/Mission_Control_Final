@@ -141,17 +141,20 @@ public class RocketBehavior : MonoBehaviour {
 				if (pod.name.StartsWith ("tank")) {
 					pod.parent = null;
 					pod.gameObject.AddComponent<Rigidbody>();
+					//var direction = pod.position - particleSyst.transform.position;
+					pod.gameObject.GetComponent<Rigidbody> ().velocity = (dVector) * velocity;
 					break;
 				}
 			}
-			changeAngle (10,dVector);
+			changeAngle (0,dVector,turning);
 		}
 	}
 
-	void changeAngle(float amount, Vector3 dVector) {
+	void changeAngle(float amount, Vector3 dVector, Boolean turning) {
 		// change angle if fuel drop
-		//velocity = (float) (Math.Sqrt ((4.9 * rocketX) / (Math.Sin (angleRad) * Math.Cos (angleRad)))); //gets curr velocity
-		velocity = (dVector.magnitude) / (time-prevTime);
+		if (!turning) {
+			velocity = (dVector.magnitude) / (time - prevTime);
+		}
 		angleRad = (float) (Math.PI - Math.Cos(dVector.x)); //sets angleRad to current angle
 		initialX = rocketX;
 		initialY = rocketY;
