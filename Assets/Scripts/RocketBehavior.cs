@@ -112,19 +112,20 @@ public class RocketBehavior : MonoBehaviour {
                 Skybox.leavingAtmosphere();
             }
 
+            //Check for lose conditions: Too High
+            if (new_y_pos > max_height) {
+                launch = false;
+                ScreenChanges.staticSpecificScene("Lose_Screen_High");
+            }
+            
+            //Check for lose conditions: Too Low or just right when it starts to turn
             if (new_y_pos - old_y_pos <= -10) {
                 //If it's too low, switch contexts to the losing screen
                 if (new_y_pos < min_height) {
                     launch = false;
                     ScreenChanges.staticSpecificScene("Lose_Screen_Low");
                 }
-                //If it's too high, switch contexts to the losing screen
-                else if (new_y_pos > max_height) {
-                    launch = false;
-                    ScreenChanges.launch_sounds();
-                    ScreenChanges.staticSpecificScene("Lose_Screen_High");
-                }
-                //If it's within the window of success, switch contexts to the winning screen
+                //Otherwise it's just right!
                 else {
                     launch = false;
                     ScreenChanges.launch_sounds();
