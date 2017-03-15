@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour {
     int timer;
     public static AudioSource audio2;
 
-    public string get_mission() {
+    public static string get_mission() {
 		return mission;
 	}
 

@@ -129,7 +129,18 @@ public class RocketBehavior : MonoBehaviour {
                 else {
                     launch = false;
                     ScreenChanges.launch_sounds();
-                    ScreenChanges.staticSpecificScene("Win_Screen");
+                    if (GameState.get_mission() == "Satellite") {
+                        ScreenChanges.staticSpecificScene("Win_Screen_Satellite");
+                    }
+                    else if (GameState.get_mission() == "Shuttle") {
+                        ScreenChanges.staticSpecificScene("Win_Screen_Shuttle");
+                    }
+                    else if (GameState.get_mission() == "Mars") {
+                        ScreenChanges.staticSpecificScene("Win_Screen_Mars");
+                    }
+                    else {
+                        Debug.Log("Something went wrong with the Win conditions!");
+                    }
                 }
             }
         }

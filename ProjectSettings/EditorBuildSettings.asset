@@ -15,8 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Debriefing_Shuttle.unity
   - enabled: 1
     path: Assets/Scenes/Debriefing_Mars.unity
-  - enabled: 0
-    path: Assets/Scenes/SelectRocketScreen.unity
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
   - enabled: 1
@@ -24,4 +22,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose_Screen_High.unity
   - enabled: 1
-    path: Assets/Scenes/Win_Screen.unity
+    path: Assets/Scenes/Win_Screen_Satellite.unity
+  - enabled: 1
+    path: Assets/Scenes/Win_Screen_Shuttle.unity
+  - enabled: 1
+    path: Assets/Scenes/Win_Screen_Mars.unity
