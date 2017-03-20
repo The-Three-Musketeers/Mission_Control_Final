@@ -50,6 +50,8 @@ public class RocketBehavior : MonoBehaviour {
     public int min_height = 100000;
     public int max_height = 400000;
 
+	int LaunchPadHeight = 700;
+
 
 	/* This function is called once per frame and is used to 
 	 * update the game
@@ -97,7 +99,7 @@ public class RocketBehavior : MonoBehaviour {
 			Vector3 move = launchPhase_TakeOff();
 
             //Update the position based on the different parts of the launch sequence
-			if (Math.Pow(gameTime,3) < velocity) {
+			if (Math.Pow(gameTime,3) < velocity || transform.position.y < LaunchPadHeight) {
 				move = launchPhase_TakeOff();
 			} else if (turning && Quaternion.Angle(transform.rotation,vQ) > 5f) {
 				move = launchPhase_TurnToAngle (RocketDirectionVector,vQ);
