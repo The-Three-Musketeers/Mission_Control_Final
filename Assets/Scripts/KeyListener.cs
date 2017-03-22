@@ -86,18 +86,34 @@ public class KeyListener : MonoBehaviour {
     //noted as arg.Value, into actual function calls for different parts
     //of the game.
     private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
+        //Drop-OK Button
         if (arg.Value == 0) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Manual_Click.click());
             UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN));
         }
+        //Left Arrow
         if (arg.Value == 1) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
         }
+        //Right Arrow
         if (arg.Value == 2) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
         }
+        //Drop Button
         if (arg.Value == 3) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => UnityEngine.Application.Quit());
+            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
+        }
+        //Green Button
+        if (arg.Value == 4) {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
+        }
+        //Red Rutton
+        if (arg.Value == 5) {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J));
+        }
+        //Blue Button
+        if (arg.Value == 6) {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L));
         }
     }
 }
