@@ -60,7 +60,7 @@ Material:
     m_Floats:
     - first:
         name: _AtmosphereThickness
-      second: 0
+      second: 1.0100005
     - first:
         name: _Exposure
       second: 1.56
