@@ -8,14 +8,14 @@ public class ColorChange : MonoBehaviour {
     // Use this for initialization
     int counter = 0;
     static Color[] colorList = { Color.red, Color.green, Color.blue};
-    ArduinoNet.Serial serial;
+    //ArduinoNet.Serial serial;
 
 	void Start () {
         ChangeColor(color);
-        serial = ArduinoNet.Serial.Connect("COM3");
-        if(serial != null) {
-            serial.OnButtonPressed += Serial_OnButtonPressed;
-        }
+        //serial = ArduinoNet.Serial.Connect("COM4");
+        //if(serial != null) {
+        //    serial.OnButtonPressed += Serial_OnButtonPressed;
+        //}
 	}
 
     private void Serial_OnButtonPressed(object sender, ArduinoNet.ArduinoEventArg arg) {

@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 using ArduinoNet;
@@ -14,7 +16,7 @@ public class KeyListener : MonoBehaviour {
     public static bool angle_selected = false;
 
     //Serial initialization
-    public static Serial serial = Serial.Connect("COM4");
+    public static Serial serial;// = Serial.Connect("COM4");
 
     // Update is called once per frame
     //The controls are as follows:
@@ -36,9 +38,13 @@ public class KeyListener : MonoBehaviour {
     //Additionally, this is only for keyboard inputs, which are
     //intended only for developer use.
 
+    int delay_timer;
+
     void Start() {
         if (serial != null) {
             serial.OnButtonPressed += Serial_OnButtonPressed;
+            serial.OnSlideChanged += Serial_OnSlideChanged;
+            serial.OnKnobChanged += Serial_OnKnobChanged;
         }
     }
 
@@ -54,7 +60,8 @@ public class KeyListener : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.D)) {
             Selector.next_option();
         }
-        if (Input.GetKeyDown(KeyCode.S)) {
+        //Manual Click Key - DON'T DO THIS ON THE GAMEPLAY SCREEN - LEADS TO WEIRD BEHAVIOR
+        if (Input.GetKeyDown(KeyCode.S) && SceneManager.GetActiveScene().name != "Gameplay") {
             Manual_Click.click();
         }
         //Color Changing Keys
@@ -86,35 +93,54 @@ public class KeyListener : MonoBehaviour {
     //noted as arg.Value, into actual function calls for different parts
     //of the game.
     private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
-        //Drop-OK Button
-        if (arg.Value == 0) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Manual_Click.click());
-            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN));
-        }
-        //Left Arrow
-        if (arg.Value == 1) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
-        }
-        //Right Arrow
-        if (arg.Value == 2) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
-        }
-        //Drop Button
-        if (arg.Value == 3) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
-        }
-        //Green Button
-        if (arg.Value == 4) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
-        }
-        //Red Rutton
-        if (arg.Value == 5) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J));
-        }
-        //Blue Button
-        if (arg.Value == 6) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L));
+        if (delay_timer >= 10) {
+            //Drop-OK Button
+            if (arg.Value == 0) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Manual_Click.click());
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN));
+            }
+            //Left Arrow
+            if (arg.Value == 1) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
+            }
+            //Right Arrow
+            if (arg.Value == 3) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
+            }
+            //Drop Button
+            if (arg.Value == 2) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
+            }
+            //Green Button
+            if (arg.Value == 4) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
+            }
+            //Red Rutton
+            if (arg.Value == 5) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J));
+            }
+            //Blue Button
+            if (arg.Value == 6) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L));
+            }
+            delay_timer = 0;
         }
     }
+
+    private void Serial_OnSlideChanged(object sender, ArduinoEventArg arg) {
+        if (RocketBehavior.launch == false) {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => GameObject.Find("Fuel Slider").GetComponent<Slider>().value = arg.Value / 255f);
+            delay_timer = 0;
+        }
+    }
+
+    private void Serial_OnKnobChanged(object sender, ArduinoEventArg arg) {
+        if (RocketBehavior.launch == false) {
+            UnityMainThreadDispatcher.Instance().Enqueue(() => GameObject.Find("Angle Slider").GetComponent<Slider>().value = arg.Value / 255f);
+            delay_timer = 0;
+        }
+    }
+
+
 }
 
