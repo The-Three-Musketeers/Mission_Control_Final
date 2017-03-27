@@ -292,11 +292,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The satellite has been damaged! We need you to send a crew up there to
-    repair it! Get ready to launch the shuttle!
-
-
-    Make sure you set the right angle or you''ll miss the satellite!'
+  m_Text: "The engineers on the INTERNATIONAL SPACE STATION need supplies! Get ready
+    to send a payload into orbit!  \n\nMake sure you set the right angle or you'll
+    miss it!"
 --- !u!222 &349321637
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -550,7 +548,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c6fcc4e3fdf06a94e8dcb0867b49fce4, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.01
   Loop: 0
   Mute: 0
   Spatialize: 0
