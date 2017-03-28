@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Win_Screen_Satellite_Animation : MonoBehaviour
-{
+public class Win_Screen_Satellite_Animation : MonoBehaviour {
 
     public AudioSource audio;
     Material sky;
 
     void Start() {
+        ScreenChanges.launch_sounds();
         sky = RenderSettings.skybox;
         sky.SetFloat("_AtmosphereThickness", 0);
         audio.Play();

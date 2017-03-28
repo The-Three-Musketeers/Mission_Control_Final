@@ -17,7 +17,7 @@ public class Win_Screen_Shuttle_Animation: MonoBehaviour {
     // Update is called once per frame
     void Update() {
         Vector3 old_pos = gameObject.transform.position;
-        Vector3 new_pos = new Vector3(old_pos.x + 5f, old_pos.y + 25f, old_pos.z);
+        Vector3 new_pos = new Vector3(old_pos.x + 10f, old_pos.y + 50f, old_pos.z);
         gameObject.transform.position = new_pos;
         //Decrease the launch sounds over time
         if (new_pos.y < 0) {

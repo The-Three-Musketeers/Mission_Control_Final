@@ -10,6 +10,7 @@ public class RocketBehavior : MonoBehaviour {
 
     // Public variables for the particle system and camera
     public ParticleSystem particleSyst = null;
+    public ParticleSystem smoke = null;
     public Transform stars;
     public Transform cam = null;
 
@@ -73,6 +74,7 @@ public class RocketBehavior : MonoBehaviour {
             // Set the launch mode, play the particle system and rocket sounds
             GUISwitch.launch_mode();
             particleSyst.Play();
+            smoke.Play();
             ScreenChanges.launch_sounds();
             LaunchPad.reset();
         }
@@ -230,7 +232,6 @@ public class RocketBehavior : MonoBehaviour {
 			} 
 			else { 			                                                   // Otherwise it's just right!
 				launch = false;
-				ScreenChanges.launch_sounds();
 				if (GameState.get_mission() == "Satellite") {
 					ScreenChanges.staticSpecificScene("Win_Screen_Satellite");
 				}
