@@ -12,16 +12,7 @@ public class ColorChange : MonoBehaviour {
 
 	void Start () {
         ChangeColor(color);
-        //serial = ArduinoNet.Serial.Connect("COM4");
-        //if(serial != null) {
-        //    serial.OnButtonPressed += Serial_OnButtonPressed;
-        //}
 	}
-
-    private void Serial_OnButtonPressed(object sender, ArduinoNet.ArduinoEventArg arg) {
-        var buttonID = arg.Value;
-        ChangeColor(buttonID);
-    }
 
     public static void ChangeColor(int colorIndex) {
         var rocket = GameObject.Find("rocket");

@@ -134,8 +134,6 @@ public class RocketBehavior : MonoBehaviour {
 			if (pod.name.StartsWith ("tank")) { 				                           // iterate through components and look for fuel tanks
 				pod.parent = null;                                                         // remove component from the parent
 				//pod.gameObject.AddComponent<Rigidbody>();                                  // add physics engine (rigidbody) to component
-				Debug.Log(dVector.ToString());
-				Debug.Log (velocity.ToString());
 				//pod.gameObject.GetComponent<Rigidbody> ().velocity = (dVector) * velocity; // give a velocity away from rocket
 				break;                                                                     // only drop 1 fuel pod
 			}
@@ -195,7 +193,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * and ititial velocity and the only force is due to gravity
 	*/
 	Vector3 launchPhase_PhysicsTrajectory(Vector3 dVec) {
-		Debug.Log (velocity.ToString ());
 		turning = false;
 		Quaternion vQ = Quaternion.LookRotation (Vector3.forward, dVec);
 		transform.rotation = Quaternion.Slerp(transform.rotation, vQ, 0.5f*Time.deltaTime);
@@ -237,9 +234,6 @@ public class RocketBehavior : MonoBehaviour {
 				}
 				else if (GameState.get_mission() == "Mars") {
 					ScreenChanges.staticSpecificScene("Win_Screen_Mars");
-				}
-				else {
-					Debug.Log("Something went wrong with the Win conditions!");
 				}
 			}
 		}
