@@ -118,17 +118,17 @@ public class RocketBehavior : MonoBehaviour {
         }
 
 		// Handles dropping fuel pods 
-		if ( (Input.GetKeyDown(KeyCode.Space)) ) {
+		/*if ( (Input.GetKeyDown(KeyCode.Space)) ) {
 			dropPod (rocket_direction);
 			// Adjust the rockets trajectory if users drops fuel pod too early/late
 			changeAngle (0,rocket_direction,turning);
-		}
+		}*/
 	}
 
 
 	/* This function drops one fuel pod
 	*/
-	void dropPod(Vector3 dVector) {
+	/*void dropPod(Vector3 dVector) {
 		Transform[] ts = gameObject.GetComponentsInChildren<Transform>();                  // get the components of the rocketship
 		foreach (Transform pod in ts) {
 			if (pod.name.StartsWith ("tank")) { 				                           // iterate through components and look for fuel tanks
@@ -140,13 +140,13 @@ public class RocketBehavior : MonoBehaviour {
 				break;                                                                     // only drop 1 fuel pod
 			}
 		}
-	}
+	}*/
 
 
 	/* This function changes the trajectory of the rocketship by adjusting
 	 * the angle it follows 
 	*/
-	void changeAngle(float amount, Vector3 dVector, Boolean turning) {
+	/*void changeAngle(float amount, Vector3 dVector, Boolean turning) {
 		if (!turning) {                                                         // only change velocity if rocket is turning
 			velocity = (dVector.magnitude) / (time - prevTime);
 		}
@@ -155,7 +155,7 @@ public class RocketBehavior : MonoBehaviour {
 		initialY = rocketY;
 		time = 0;                                                               // resets equation
 		angleRad -= amount * ((float)Math.PI) / 180;                            // makes new angle
-	}
+	}*/
 
 
 	/* This function moves the rocket in an upwards direction at a cubicaly
@@ -163,7 +163,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * velocity it moves it up at the rate of the velocity.
 	*/
 	Vector3 launchPhase_TakeOff() {
-		Debug.Log ("Phase 1");
 		gameTime += Time.deltaTime;
 		if (Math.Pow (gameTime, 3) < velocity) {
 			rocketY += (float) Math.Pow (gameTime, 3);
@@ -178,7 +177,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * transition to follow the trajectory given by the user input 
 	*/
 	Vector3 launchPhase_TurnToAngle(Vector3 input_angle, Quaternion input_angle_rot) {
-		Debug.Log ("Phase 2");
 		// rotate the rocket
 		transform.rotation = Quaternion.Slerp(transform.rotation, input_angle_rot, 0.5f * Time.deltaTime);
 		GameObject.Find("HUD").transform.forward = cam.forward;
@@ -197,7 +195,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * and ititial velocity and the only force is due to gravity
 	*/
 	Vector3 launchPhase_PhysicsTrajectory(Vector3 dVec) {
-		Debug.Log ("Phase 3");
 		Debug.Log (velocity.ToString ());
 		turning = false;
 		Quaternion vQ = Quaternion.LookRotation (Vector3.forward, dVec);
