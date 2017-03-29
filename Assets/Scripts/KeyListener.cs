@@ -16,7 +16,7 @@ public class KeyListener : MonoBehaviour {
     public static bool angle_selected = false;
 
     //Serial initialization
-    public static Serial serial;// = Serial.Connect("COM4");
+    public static Serial serial = Serial.Connect("COM4");
 
     // Update is called once per frame
     //The controls are as follows:
@@ -49,6 +49,7 @@ public class KeyListener : MonoBehaviour {
     }
 
     void Update() {
+        delay_timer += 1;
         //Quit with Q
         if (Input.GetKeyDown(KeyCode.Q)) {
             UnityEngine.Application.Quit();
@@ -93,51 +94,69 @@ public class KeyListener : MonoBehaviour {
     //noted as arg.Value, into actual function calls for different parts
     //of the game.
     private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
-        if (delay_timer >= 10) {
-            //Drop-OK Button
+        if (delay_timer >= 2) {
+            //Drop Button
             if (arg.Value == 0) {
-                UnityMainThreadDispatcher.Instance().Enqueue(() => Manual_Click.click());
-                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN));
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
+                delay_timer = 0;
             }
             //Left Arrow
             if (arg.Value == 1) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
+                delay_timer = 0;
+            }
+            //Launch-OK Button
+            if (arg.Value == 2) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => {
+                    if (SceneManager.GetActiveScene().name == "Gameplay")
+                        InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                    else
+                        Manual_Click.click();
+                });
+                delay_timer = 0;
             }
             //Right Arrow
             if (arg.Value == 3) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
-            }
-            //Drop Button
-            if (arg.Value == 2) {
-                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
-            }
-            //Green Button
-            if (arg.Value == 4) {
-                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
+                delay_timer = 0;
             }
             //Red Rutton
-            if (arg.Value == 5) {
+            if (arg.Value == 4) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J));
+                delay_timer = 0;
+            }
+            //Green Button
+            if (arg.Value == 5) {
+                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
+                delay_timer = 0;
             }
             //Blue Button
             if (arg.Value == 6) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L));
+                delay_timer = 0;
             }
-            delay_timer = 0;
         }
     }
 
     private void Serial_OnSlideChanged(object sender, ArduinoEventArg arg) {
         if (RocketBehavior.launch == false) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => GameObject.Find("Fuel Slider").GetComponent<Slider>().value = arg.Value / 255f);
-            delay_timer = 0;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => {
+                var obj = GameObject.Find("Fuel Slider");
+                if (obj != null)
+                    obj.GetComponent<Slider>().value = arg.Value / 255f;
+                delay_timer = 0;
+            });
         }
     }
 
     private void Serial_OnKnobChanged(object sender, ArduinoEventArg arg) {
         if (RocketBehavior.launch == false) {
-            UnityMainThreadDispatcher.Instance().Enqueue(() => GameObject.Find("Angle Slider").GetComponent<Slider>().value = arg.Value / 255f);
-            delay_timer = 0;
+            UnityMainThreadDispatcher.Instance().Enqueue(() => {
+                var obj = GameObject.Find("Angle Slider");
+                if (obj != null)
+                    obj.GetComponent<Slider>().value = arg.Value / 255f;
+                delay_timer = 0;
+            });
         }
     }
 

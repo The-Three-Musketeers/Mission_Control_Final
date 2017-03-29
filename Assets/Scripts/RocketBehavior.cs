@@ -134,8 +134,6 @@ public class RocketBehavior : MonoBehaviour {
 			if (pod.name.StartsWith ("tank")) { 				                           // iterate through components and look for fuel tanks
 				pod.parent = null;                                                         // remove component from the parent
 				//pod.gameObject.AddComponent<Rigidbody>();                                  // add physics engine (rigidbody) to component
-				Debug.Log(dVector.ToString());
-				Debug.Log (velocity.ToString());
 				//pod.gameObject.GetComponent<Rigidbody> ().velocity = (dVector) * velocity; // give a velocity away from rocket
 				break;                                                                     // only drop 1 fuel pod
 			}
@@ -163,7 +161,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * velocity it moves it up at the rate of the velocity.
 	*/
 	Vector3 launchPhase_TakeOff() {
-		Debug.Log ("Phase 1");
 		gameTime += Time.deltaTime;
 		if (Math.Pow (gameTime, 3) < velocity) {
 			rocketY += (float) Math.Pow (gameTime, 3);
@@ -178,7 +175,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * transition to follow the trajectory given by the user input 
 	*/
 	Vector3 launchPhase_TurnToAngle(Vector3 input_angle, Quaternion input_angle_rot) {
-		Debug.Log ("Phase 2");
 		// rotate the rocket
 		transform.rotation = Quaternion.Slerp(transform.rotation, input_angle_rot, 0.5f * Time.deltaTime);
 		GameObject.Find("HUD").transform.forward = cam.forward;
@@ -197,8 +193,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * and ititial velocity and the only force is due to gravity
 	*/
 	Vector3 launchPhase_PhysicsTrajectory(Vector3 dVec) {
-		Debug.Log ("Phase 3");
-		Debug.Log (velocity.ToString ());
 		turning = false;
 		Quaternion vQ = Quaternion.LookRotation (Vector3.forward, dVec);
 		transform.rotation = Quaternion.Slerp(transform.rotation, vQ, 0.5f*Time.deltaTime);
@@ -240,9 +234,6 @@ public class RocketBehavior : MonoBehaviour {
 				}
 				else if (GameState.get_mission() == "Mars") {
 					ScreenChanges.staticSpecificScene("Win_Screen_Mars");
-				}
-				else {
-					Debug.Log("Something went wrong with the Win conditions!");
 				}
 			}
 		}
