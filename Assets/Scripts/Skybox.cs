@@ -15,7 +15,7 @@ public class Skybox : MonoBehaviour {
     Light mainLight;
     //Public references
     public Transform cam;
-    public Renderer water;
+    public static Renderer water;
     public Transform worldProbe;
     public Gradient nightDayColor;
     public float maxIntensity = 3f;
@@ -36,6 +36,7 @@ public class Skybox : MonoBehaviour {
 	void Start () {
         sky = RenderSettings.skybox;
         mainLight = GetComponent<Light>();
+        water = GameObject.Find("Ocean").GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
@@ -57,9 +58,10 @@ public class Skybox : MonoBehaviour {
         mainLight.color = nightDayColor.Evaluate(dot);
         RenderSettings.ambientLight = mainLight.color;
         if (launching) {
-            globalAtmosphereThickness -= 0.005f;
+            globalAtmosphereThickness -= 0.01f;
             if (globalAtmosphereThickness <= 0) {
                 globalAtmosphereThickness = 0;
+                water.transform.localScale = new Vector3(0, 0, 0);
             }
         }
         sky.SetFloat("_AtmosphereThickness", globalAtmosphereThickness);
@@ -78,5 +80,6 @@ public class Skybox : MonoBehaviour {
     public static void reset() {
         launching = false;
         globalAtmosphereThickness = 1.5f;
+        water.transform.localScale = new Vector3(7000, 1, 7000);
     }
 }

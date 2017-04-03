@@ -45,11 +45,26 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     // Win/Lose conditions:
-    public int min_height = 100000;
-    public int max_height = 400000;
+    public int atmosphere_height = 88000;
+    int min_height = 0;
+    int max_height = 0;
 
 	int LaunchPadHeight = 700;
 
+    private void Start() {
+        if (GameState.get_mission() == "Satellite") {
+            min_height = 90000;
+            max_height = 180000;
+        }
+        else if (GameState.get_mission() == "Shuttle") {
+            min_height = 120000;
+            max_height = 240000;
+        }
+        else if (GameState.get_mission() == "Mars") {
+            min_height = 180000;
+            max_height = 360000;
+        }
+    }
 
 	/* This function is called once per frame and is used to 
 	 * update the game
@@ -210,7 +225,7 @@ public class RocketBehavior : MonoBehaviour {
 	*/
 	void check_win_lose(float old_y_pos, float new_y_pos) {
 		//Check for leaving the atmosphere
-		if (new_y_pos > 100000) {
+		if (new_y_pos > atmosphere_height) {
 			Skybox.leavingAtmosphere();
 		}
 		// Check for lose conditions: Too High
