@@ -174,7 +174,8 @@ MonoBehaviour:
     planet so we can check it out!
 
 
-    MARS is pretty far, so make sure you''ve got everything you need before the launch!'
+    MARS is pretty far, so make sure you''ve got plenty of fuel and a good angle before
+    the launch!'
 --- !u!222 &320586380
 CanvasRenderer:
   m_ObjectHideFlags: 0

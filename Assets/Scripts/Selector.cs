@@ -8,12 +8,18 @@ using System.Collections;
 public class Selector : MonoBehaviour {
 
 	public static int option_selected = 1;
+    public static AudioSource beep;
+
+    private void Start() {
+        beep = GameObject.Find("SelectorBeep").GetComponent<AudioSource>();
+    }
 
 	public static int get_option() {
 		return option_selected;
 	}
 
 	public static void next_option() {
+        beep.Play();
 		option_selected = option_selected + 1;
 		if (option_selected == 4) {
 			option_selected = 1;
@@ -21,14 +27,14 @@ public class Selector : MonoBehaviour {
 	}
 
 	public static void prev_option() {
-		option_selected = option_selected - 1;
+        beep.Play();
+        option_selected = option_selected - 1;
 		if (option_selected == 0) {
 			option_selected = 3;
 		}
 	}
 
-    public static void reset()
-    {
+    public static void reset() {
         option_selected = 1;
     }
 }

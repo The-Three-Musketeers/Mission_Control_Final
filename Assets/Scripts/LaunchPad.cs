@@ -11,6 +11,7 @@ public class LaunchPad : MonoBehaviour {
     bool button_hit_flag = false;
     public float animationSpeed;
     public Animation _animation;
+    public AudioSource MechSoundFX;
 
     void Start () {
         _animation = GetComponent<Animation>();
@@ -21,6 +22,7 @@ public class LaunchPad : MonoBehaviour {
     void Update () {
         Animation animation = GetComponent<Animation>();
         if (Input.GetKeyDown(KeyCode.Return) && RocketBehavior.launch == false) {
+            MechSoundFX.Play();
 	        _animation["Expand"].speed = animationSpeed;
             _animation.Play();
             RocketBehavior.launch = true;
