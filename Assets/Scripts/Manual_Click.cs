@@ -17,14 +17,20 @@ public class Manual_Click : MonoBehaviour {
             reset();
         }
     }
+
+    //Trigger the boolean flag specifying that a click has occurred
     public static void click() {
         clicked = true;
     }
 
+    //Set the buttonName to te specified string
+    //Used for if there is more than one option
     public static void set_name(string new_name) {
         buttonName = new_name;
     }
 
+    //Reset the ButtonName and clicked boolean to their default values
+    //Also reset the Selector script's state
     public static void reset() {
         buttonName = "Button";
         clicked = false;

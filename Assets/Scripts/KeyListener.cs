@@ -19,9 +19,8 @@ public class KeyListener : MonoBehaviour {
     public static Serial serial = Serial.Connect("COM4");
 
     // Update is called once per frame
-    //The controls are as follows:
+    //The controls are as follows for the keyboard:
     //Q - Quit the Application
-    //Left Arrow - Go to the previous screen in the sequence
     //A - Left option button
     //D - Right option button
     //S - Select option button
@@ -29,6 +28,10 @@ public class KeyListener : MonoBehaviour {
     //G - Hold to select the angle on the gameplay screen
     //Up Arrow - See 'Manual_Slider.cs' for details
     //Down Arrow - Ditto
+    //ENTER - Launch the Rocket on the Gameplay Screen
+    //J - Change color of rocket to Red
+    //K - Change color of rocket to Green
+    //L - Change color of rocket to Blue
 
     //This doesn't listen for the rocket launch,
     //drop fuel, or launch pad animation keys. Those are handled
@@ -40,6 +43,8 @@ public class KeyListener : MonoBehaviour {
 
     int delay_timer;
 
+    //Start out by getting the inputs from the analog controller
+    //But only if the controller is connected (i.e. serial != null)
     void Start() {
         if (serial != null) {
             serial.OnButtonPressed += Serial_OnButtonPressed;
@@ -48,6 +53,7 @@ public class KeyListener : MonoBehaviour {
         }
     }
 
+    //Called once per frame, polls for inputs of all kinds
     void Update() {
         delay_timer += 1;
         //Quit with Q
@@ -95,7 +101,7 @@ public class KeyListener : MonoBehaviour {
     //of the game.
     private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
         if (delay_timer >= 2) {
-            //Drop Button
+            //Drop Button - Deprecated. Version 1.0 does not have this functionality (See RocketBehavior.cs for more details)
             if (arg.Value == 0) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
                 delay_timer = 0;
@@ -108,8 +114,10 @@ public class KeyListener : MonoBehaviour {
             //Launch-OK Button
             if (arg.Value == 2) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => {
+                    //If on the gameplay screen, this button acts as the ENTER key
                     if (SceneManager.GetActiveScene().name == "Gameplay")
                         InputSimulator.SimulateKeyPress(VirtualKeyCode.RETURN);
+                    //Otherwise it acts as a mouse click
                     else
                         Manual_Click.click();
                 });
@@ -138,7 +146,9 @@ public class KeyListener : MonoBehaviour {
         }
     }
 
+    //Handling for if the slider is changed
     private void Serial_OnSlideChanged(object sender, ArduinoEventArg arg) {
+        //If the rocket is not currently being launched, get the clamped value of the slider
         if (RocketBehavior.launch == false) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => {
                 var obj = GameObject.Find("Fuel Slider");
@@ -149,7 +159,9 @@ public class KeyListener : MonoBehaviour {
         }
     }
 
+    //Handling for if the angle knob is changed
     private void Serial_OnKnobChanged(object sender, ArduinoEventArg arg) {
+        //If the rocket is not currently being launched, get the clamped value of the angle
         if (RocketBehavior.launch == false) {
             UnityMainThreadDispatcher.Instance().Enqueue(() => {
                 var obj = GameObject.Find("Angle Slider");

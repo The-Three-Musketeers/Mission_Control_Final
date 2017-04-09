@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script controls the behavior of the satellite on the Win
+//Screen for the Satellite mission. Attach it to the satellite object
+
 public class Win_Screen_Satellite_Animation : MonoBehaviour {
 
     public AudioSource audio;
     Material sky;
 
+    //Start out by setting the skybox to the custom space backdrop
+    //Also play the satellite's audio from the Audio Source
     void Start() {
         ScreenChanges.launch_sounds();
         sky = RenderSettings.skybox;
@@ -27,6 +32,9 @@ public class Win_Screen_Satellite_Animation : MonoBehaviour {
         gameObject.transform.position = new_pos;
         gameObject.transform.rotation = Quaternion.Euler(new_rot);
     }
+
+    //Stop the looping audio. Call this with
+    //the button press on the win screen
     public void reset() {
         audio.Stop();
     }
