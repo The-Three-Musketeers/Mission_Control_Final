@@ -15,7 +15,7 @@ public class Skybox : MonoBehaviour {
     Light mainLight;
     //Public references
     public Transform cam;
-    public Renderer water;
+    public static Renderer water;
     public Transform worldProbe;
     public Gradient nightDayColor;
     public float maxIntensity = 3f;
@@ -36,6 +36,7 @@ public class Skybox : MonoBehaviour {
 	void Start () {
         sky = RenderSettings.skybox;
         mainLight = GetComponent<Light>();
+        water = GameObject.Find("Ocean").GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +46,7 @@ public class Skybox : MonoBehaviour {
         worldProbe.transform.position = tvec;
         water.material.mainTextureOffset = new Vector2(Time.time / 100, 0);
         water.material.SetTextureOffset("_DetailAlbedoMap", new Vector2(0, Time.time / 80));
-        //Updating the sky
+        //Updating the sky - math
         float tRange = 1 - minPoint;
         float dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minPoint) / tRange);
         float i = ((maxIntensity - minIntensity) * dot) + minIntensity;
@@ -56,27 +57,38 @@ public class Skybox : MonoBehaviour {
         RenderSettings.ambientIntensity = i;
         mainLight.color = nightDayColor.Evaluate(dot);
         RenderSettings.ambientLight = mainLight.color;
+        //If the rocket is launching, decrease the global thickness of the atmosphere to simulate the rocket leaving
+        //the earth's atmosphere
         if (launching) {
-            globalAtmosphereThickness -= 0.005f;
+            globalAtmosphereThickness -= 0.01f;
+            //Once the global thickness is 0, stop decreasing, for we have reached space.
+            //Also get rid of the water, because we're too high to see it
             if (globalAtmosphereThickness <= 0) {
                 globalAtmosphereThickness = 0;
+                water.transform.localScale = new Vector3(0, 0, 0);
             }
         }
         sky.SetFloat("_AtmosphereThickness", globalAtmosphereThickness);
+        //Rotate the sun based on the dayRotaateSpeed
         if (dot > 0) {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
         }
+        //Otherwise rotate the sun based on the nightRotateSpeed
         else {
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
         }
     }
 
+    //Set the boolean for launching if the rocket is leaving the atmosphere
     public static void leavingAtmosphere() {
         launching = true;
     }
 
+    //Reset the launch boolean, global thickness and water scale that may have changed.
+    //Call this upon leaving the gameplay scrren (See GameState.cs and RocketBehavior.cs)
     public static void reset() {
         launching = false;
         globalAtmosphereThickness = 1.5f;
+        water.transform.localScale = new Vector3(7000, 1, 7000);
     }
 }

@@ -35,13 +35,7 @@ public class ScreenChanges : MonoBehaviour {
         BeginFade(-1);
     }
 
-    void OnGUI() {
-        alpha += fadeDir * fadeSpeed * Time.deltaTime;
-        alpha = Mathf.Clamp01(alpha);
-        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
-        GUI.depth = drawDepth;
-    }
-
+    //Trigger fade
     public static float BeginFade(int direction) {
         fadeDir = direction;
         return (fadeSpeed);
@@ -68,7 +62,7 @@ public class ScreenChanges : MonoBehaviour {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1); ;
     }
 
-    //Go to a specific scene by name
+    //Go to a specific scene by name - Use this if calling from Unity
     public void SpecificScene(string name) {
         //Play the bleeping between screens
         if (audio1 != null) { audio1.Play(); }
@@ -78,7 +72,7 @@ public class ScreenChanges : MonoBehaviour {
         changeMusic();
     }
 
-    //Go to a specific scene by name
+    //Go to a specific scene by name - Use this if calling from within another script
     public static void staticSpecificScene(string name) {
         //Play the bleeping between screens
         if (audio1 != null) { audio1.Play(); }
@@ -89,6 +83,9 @@ public class ScreenChanges : MonoBehaviour {
     }
 
     //Change Music when you get to the gameplay, and also when you leave that screen
+    //You have to check for the scene BEFORE the one you want to change the music for
+    //because SceneManager.GetActiveScene().name does not immediately change with a
+    //scene transition. This changes the music immediately, rather than after a delay
     public static void changeMusic() {
         if (SceneManager.GetActiveScene().name == "Debriefing_Mars" || SceneManager.GetActiveScene().name == "Debriefing_Shuttle" || SceneManager.GetActiveScene().name == "Debriefing_Satellite") {
             music1.Stop();

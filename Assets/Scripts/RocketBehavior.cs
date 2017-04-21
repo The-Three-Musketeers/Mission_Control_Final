@@ -44,11 +44,28 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     // Win/Lose conditions:
-    public int min_height = 100000;
-    public int max_height = 400000;
+    public int atmosphere_height = 88000;
+    int min_height = 0;
+    int max_height = 0;
 
 	int LaunchPadHeight = 700;
 
+    //Start out by determining the min and max height based
+    //on the selected mission
+    private void Start() {
+        if (GameState.get_mission() == "Satellite") {
+            min_height = 90000;
+            max_height = 180000;
+        }
+        else if (GameState.get_mission() == "Shuttle") {
+            min_height = 120000;
+            max_height = 240000;
+        }
+        else if (GameState.get_mission() == "Mars") {
+            min_height = 180000;
+            max_height = 360000;
+        }
+    }
 
 	/* This function is called once per frame and is used to 
 	 * update the game
@@ -60,6 +77,7 @@ public class RocketBehavior : MonoBehaviour {
         rocketY = transform.position.y;
         rocketZ = transform.position.z;
 
+        //If the rocket is not in launch mode, keep it in a state of reset
         if (launch == false) {
             // Set the initial conditions for the launch
             Camera.reset();
@@ -103,8 +121,6 @@ public class RocketBehavior : MonoBehaviour {
 				move = launchPhase_PhysicsTrajectory(rocket_direction);
 			}
 
-			//Debug.Log (move.ToString ());
-
             // Reorient the camera
             GameObject.Find("HUD").transform.forward = cam.forward;
 
@@ -116,44 +132,13 @@ public class RocketBehavior : MonoBehaviour {
 			check_win_lose(prevPos.y, transform.position.y);
         }
 
-		// Handles dropping fuel pods 
+		// Handles dropping fuel pods - This incomplete functionality has been removed for the first release
 		/*if ( (Input.GetKeyDown(KeyCode.Space)) ) {
 			dropPod (rocket_direction);
 			// Adjust the rockets trajectory if users drops fuel pod too early/late
 			changeAngle (0,rocket_direction,turning);
 		}*/
 	}
-
-
-	/* This function drops one fuel pod
-	*/
-	/*void dropPod(Vector3 dVector) {
-		Transform[] ts = gameObject.GetComponentsInChildren<Transform>();                  // get the components of the rocketship
-		foreach (Transform pod in ts) {
-			if (pod.name.StartsWith ("tank")) { 				                           // iterate through components and look for fuel tanks
-				pod.parent = null;                                                         // remove component from the parent
-				//pod.gameObject.AddComponent<Rigidbody>();                                  // add physics engine (rigidbody) to component
-				//pod.gameObject.GetComponent<Rigidbody> ().velocity = (dVector) * velocity; // give a velocity away from rocket
-				break;                                                                     // only drop 1 fuel pod
-			}
-		}
-	}*/
-
-
-	/* This function changes the trajectory of the rocketship by adjusting
-	 * the angle it follows 
-	*/
-	/*void changeAngle(float amount, Vector3 dVector, Boolean turning) {
-		if (!turning) {                                                         // only change velocity if rocket is turning
-			velocity = (dVector.magnitude) / (time - prevTime);
-		}
-		angleRad = (float) (Math.PI - Math.Cos(dVector.x));                     // sets angleRad to current angle
-		initialX = rocketX;    
-		initialY = rocketY;
-		time = 0;                                                               // resets equation
-		angleRad -= amount * ((float)Math.PI) / 180;                            // makes new angle
-	}*/
-
 
 	/* This function moves the rocket in an upwards direction at a cubicaly
 	 * increasing rate until it reaches its velocity. Once it reaches its
@@ -211,7 +196,7 @@ public class RocketBehavior : MonoBehaviour {
 	*/
 	void check_win_lose(float old_y_pos, float new_y_pos) {
 		//Check for leaving the atmosphere
-		if (new_y_pos > 100000) {
+		if (new_y_pos > atmosphere_height) {
 			Skybox.leavingAtmosphere();
 		}
 		// Check for lose conditions: Too High
@@ -227,6 +212,7 @@ public class RocketBehavior : MonoBehaviour {
 			} 
 			else { 			                                                   // Otherwise it's just right!
 				launch = false;
+                //Load up the appropriate win screen, based on the user's selected mission
 				if (GameState.get_mission() == "Satellite") {
 					ScreenChanges.staticSpecificScene("Win_Screen_Satellite");
 				}
@@ -240,7 +226,37 @@ public class RocketBehavior : MonoBehaviour {
 		}
 	}
 
+    //The following commented out functions were meant to handle dropping the fuel pods and allowing the rocket to adjust its path accordingly.
+    //Due to time constraints, such functionality has been removed, but the (incomplete) functions remain if another team wants to try and implement
+    //this functionality themselves. Caution: These are very buggy, as they were never finished
 
+    /* This function drops one fuel pod
+    */
+    /*void dropPod(Vector3 dVector) {
+		Transform[] ts = gameObject.GetComponentsInChildren<Transform>();                  // get the components of the rocketship
+		foreach (Transform pod in ts) {
+			if (pod.name.StartsWith ("tank")) { 				                           // iterate through components and look for fuel tanks
+				pod.parent = null;                                                         // remove component from the parent
+				//pod.gameObject.AddComponent<Rigidbody>();                                  // add physics engine (rigidbody) to component
+				//pod.gameObject.GetComponent<Rigidbody> ().velocity = (dVector) * velocity; // give a velocity away from rocket
+				break;                                                                     // only drop 1 fuel pod
+			}
+		}
+	}*/
+
+    /* This function changes the trajectory of the rocketship by adjusting
+	 * the angle it follows 
+	*/
+    /*void changeAngle(float amount, Vector3 dVector, Boolean turning) {
+		if (!turning) {                                                         // only change velocity if rocket is turning
+			velocity = (dVector.magnitude) / (time - prevTime);
+		}
+		angleRad = (float) (Math.PI - Math.Cos(dVector.x));                     // sets angleRad to current angle
+		initialX = rocketX;    
+		initialY = rocketY;
+		time = 0;                                                               // resets equation
+		angleRad -= amount * ((float)Math.PI) / 180;                            // makes new angle
+	}*/
 
 } // End Class: RocketBehavior
 

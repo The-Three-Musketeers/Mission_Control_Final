@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script controls the behavior of the rocket on the Win
+//Screen for the ISS mission. Attach it to the rocket object
+
 public class Win_Screen_Shuttle_Animation: MonoBehaviour {
 
     public static AudioSource audio;
     Material sky;
 
+    //Start out by setting the skybox to the custom space backdrop
+    //Also make sure the color of the rocket is consistent and the audio
+    //carries over from the previous screen
     void Start() {
         sky = RenderSettings.skybox;
         sky.SetFloat("_AtmosphereThickness", 0);
@@ -27,6 +33,8 @@ public class Win_Screen_Shuttle_Animation: MonoBehaviour {
         }
     }
 
+    //Reset the audio volume to default. Call this with
+    //the button press on the win screen
     public void reset() {
         audio.volume = 1;
         if (audio.isPlaying) {

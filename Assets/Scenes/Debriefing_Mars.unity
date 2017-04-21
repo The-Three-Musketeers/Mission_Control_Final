@@ -170,11 +170,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The satellite has picked up a signal from MARS! Get ready to send a probe
-    to the red planet so we can check it out!
+  m_Text: 'We''ve picked up a signal from MARS! Get ready to send a probe to the red
+    planet so we can check it out!
 
 
-    MARS is pretty far, so make sure you''ve got everything you need before the launch!'
+    MARS is pretty far, so make sure you''ve got plenty of fuel and a good angle before
+    the launch!'
 --- !u!222 &320586380
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class GameState : MonoBehaviour {
     int timer;
     public static AudioSource audio2;
 
+    //Bunch of getters and setters
+
     public static string get_mission() {
 		return mission;
 	}
@@ -48,8 +50,13 @@ public class GameState : MonoBehaviour {
 		angle_selected = false;
 	}
 
+    //Start out by checking to see if audio2 (Launch sound) is null,
+    //and setting it appropriately for use later
     private void Start() {
-        if (audio2 == null && GameObject.Find("Audio2") != null) { audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>(); DontDestroyOnLoad(audio2); }
+        if (audio2 == null && GameObject.Find("Audio2") != null){
+            audio2 = GameObject.Find("Audio2").GetComponent<AudioSource>();
+            DontDestroyOnLoad(audio2);
+        }
     }
 
     //The Update function is for the inactivity timer only

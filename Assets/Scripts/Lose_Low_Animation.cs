@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script handles the behavior of the rocket on the lose screen
+//for going too low. Attach it to the rocket object
+
 public class Lose_Low_Animation : MonoBehaviour {
 
     public static AudioSource audio;
 
+    //Start out by making sure the color of the rocket is consistent
+    //and getting the audio for the launch
     void Start() {
         ColorChange.ChangeColor(ColorChange.getColor());
         audio = ScreenChanges.audio2;
@@ -26,6 +31,7 @@ public class Lose_Low_Animation : MonoBehaviour {
         }
 	}
 
+    //Reset the audio. Call this from the button on the Lose Screen
     public void reset() {
         audio.volume = 1;
         if (audio.isPlaying) {

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script handles the behavior of the rocket on the lose screen
+//for going too high. Attach it to the rocket object
+
 public class Lose_High_Animation : MonoBehaviour {
 
     public static AudioSource audio;
     Material sky;
 
+    //Start out by making sure the color of the rocket is consistent
+    //and getting the audio for the launch
     void Start() {
         sky = RenderSettings.skybox;
         sky.SetFloat("_AtmosphereThickness", 0);
@@ -29,6 +34,7 @@ public class Lose_High_Animation : MonoBehaviour {
         }
     }
 
+    //Reset the audio. Call this from the button on the Lose Screen
     public void reset() {
         audio.volume = 1;
         if (audio.isPlaying) {
