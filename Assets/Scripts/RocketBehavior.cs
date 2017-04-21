@@ -30,7 +30,7 @@ public class RocketBehavior : MonoBehaviour {
     float rocketZ = 0;
 
     // Fuel velocity
-    float velocity = RocketState.fuel;
+    float velocity = RocketState.fuel + 20;
 
     // Angle variables
 	float angleRad = (180 - RocketState.angle) * ((float)Math.PI) / 180;
@@ -39,7 +39,6 @@ public class RocketBehavior : MonoBehaviour {
 	float gameTime = 0f;
 	float time = 0f;
 	float prevTime = 0f;
-	float timeMult = 0f;
 
     // For determing whether or not the rocket is turning
 	Boolean turning = true;
@@ -65,7 +64,7 @@ public class RocketBehavior : MonoBehaviour {
             // Set the initial conditions for the launch
             Camera.reset();
             Skybox.reset();
-            velocity = RocketState.fuel;
+            velocity = RocketState.fuel + 20;
 			angleRad = (180 - RocketState.angle) * ((float)Math.PI) / 180;
 		}
 			
@@ -175,6 +174,7 @@ public class RocketBehavior : MonoBehaviour {
 	 * transition to follow the trajectory given by the user input 
 	*/
 	Vector3 launchPhase_TurnToAngle(Vector3 input_angle, Quaternion input_angle_rot) {
+		Debug.Log ("Phase Lanuch 2");
 		// rotate the rocket
 		transform.rotation = Quaternion.Slerp(transform.rotation, input_angle_rot, 0.5f * Time.deltaTime);
 		GameObject.Find("HUD").transform.forward = cam.forward;
@@ -193,6 +193,7 @@ public class RocketBehavior : MonoBehaviour {
 	 * and ititial velocity and the only force is due to gravity
 	*/
 	Vector3 launchPhase_PhysicsTrajectory(Vector3 dVec) {
+		Debug.Log ("Phase Lanuch 3");
 		turning = false;
 		Quaternion vQ = Quaternion.LookRotation (Vector3.forward, dVec);
 		transform.rotation = Quaternion.Slerp(transform.rotation, vQ, 0.5f*Time.deltaTime);
