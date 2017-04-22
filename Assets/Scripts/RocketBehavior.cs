@@ -44,7 +44,7 @@ public class RocketBehavior : MonoBehaviour {
 	Boolean turning = true;
 
     // Win/Lose conditions:
-    public int atmosphere_height = 88000;
+    public int atmosphere_height = 120000;
     int min_height = 0;
     int max_height = 0;
 
@@ -54,16 +54,16 @@ public class RocketBehavior : MonoBehaviour {
     //on the selected mission
     private void Start() {
         if (GameState.get_mission() == "Satellite") {
-            min_height = 90000;
-            max_height = 180000;
+            min_height = 130000;
+            max_height = 275000;
         }
         else if (GameState.get_mission() == "Shuttle") {
-            min_height = 120000;
-            max_height = 240000;
+            min_height = 230000;
+            max_height = 375000;
         }
         else if (GameState.get_mission() == "Mars") {
-            min_height = 180000;
-            max_height = 360000;
+            min_height = 330000;
+            max_height = 660000;
         }
     }
 
@@ -159,7 +159,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * transition to follow the trajectory given by the user input 
 	*/
 	Vector3 launchPhase_TurnToAngle(Vector3 input_angle, Quaternion input_angle_rot) {
-		Debug.Log ("Phase Lanuch 2");
 		// rotate the rocket
 		transform.rotation = Quaternion.Slerp(transform.rotation, input_angle_rot, 0.5f * Time.deltaTime);
 		GameObject.Find("HUD").transform.forward = cam.forward;
@@ -178,7 +177,6 @@ public class RocketBehavior : MonoBehaviour {
 	 * and ititial velocity and the only force is due to gravity
 	*/
 	Vector3 launchPhase_PhysicsTrajectory(Vector3 dVec) {
-		Debug.Log ("Phase Lanuch 3");
 		turning = false;
 		Quaternion vQ = Quaternion.LookRotation (Vector3.forward, dVec);
 		transform.rotation = Quaternion.Slerp(transform.rotation, vQ, 0.5f*Time.deltaTime);
@@ -199,30 +197,40 @@ public class RocketBehavior : MonoBehaviour {
 		if (new_y_pos > atmosphere_height) {
 			Skybox.leavingAtmosphere();
 		}
-		// Check for lose conditions: Too High
-		if (new_y_pos > max_height) {
+        //This statement handles an edge case where it is out of the atmosphere, but still too low
+        if (new_y_pos - old_y_pos <= -10 && new_y_pos > atmosphere_height && new_y_pos < min_height) {
+            launch = false;
+            Skybox.globalAtmosphereThickness = 0;
+            ScreenChanges.staticSpecificScene("Lose_Screen_Low");
+        }
+        // Check for lose conditions: Too High
+        if (new_y_pos > max_height) {
 			launch = false;
 			ScreenChanges.staticSpecificScene("Lose_Screen_High");
 		}
 		// Check for lose conditions: Too Low or just right when it starts to turn
 		if (new_y_pos - old_y_pos <= -10) {
-			if (new_y_pos < min_height) {                                      // If it's too low, switch contexts to the losing screen
-				launch = false;
-				ScreenChanges.staticSpecificScene("Lose_Screen_Low");
-			} 
-			else { 			                                                   // Otherwise it's just right!
-				launch = false;
+            if (new_y_pos < atmosphere_height) {                                      // If it's too low, switch contexts to the losing screen
+                launch = false;
+                ScreenChanges.staticSpecificScene("Lose_Screen_Low");
+            }
+            else if (new_y_pos < min_height) {
+                launch = false;
+                ScreenChanges.staticSpecificScene("Lose_Screen_Low");
+            }
+            else {                                                              // Otherwise it's just right!
+                launch = false;
                 //Load up the appropriate win screen, based on the user's selected mission
-				if (GameState.get_mission() == "Satellite") {
-					ScreenChanges.staticSpecificScene("Win_Screen_Satellite");
-				}
-				else if (GameState.get_mission() == "Shuttle") {
-					ScreenChanges.staticSpecificScene("Win_Screen_Shuttle");
-				}
-				else if (GameState.get_mission() == "Mars") {
-					ScreenChanges.staticSpecificScene("Win_Screen_Mars");
-				}
-			}
+                if (GameState.get_mission() == "Satellite") {
+                    ScreenChanges.staticSpecificScene("Win_Screen_Satellite");
+                }
+                else if (GameState.get_mission() == "Shuttle") {
+                    ScreenChanges.staticSpecificScene("Win_Screen_Shuttle");
+                }
+                else if (GameState.get_mission() == "Mars") {
+                    ScreenChanges.staticSpecificScene("Win_Screen_Mars");
+                }
+            }
 		}
 	}
 

@@ -3785,7 +3785,7 @@ MonoBehaviour:
   smoke: {fileID: 750424997}
   stars: {fileID: 1430648871}
   cam: {fileID: 1369326895}
-  atmosphere_height: 88000
+  atmosphere_height: 120000
 --- !u!4 &1361369595 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 9452195cee6fc4aa595fc94f04d151b6, type: 3}
