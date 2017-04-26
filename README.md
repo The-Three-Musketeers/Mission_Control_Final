@@ -1,9 +1,13 @@
 # Lewisburg Children’s Museum Rocket Launch Game
 ----
 Team Name: The Three Musketeers
+
 Team Members: Michael Hammer, Kenny Rader, and Keyi Zhang
+
 Class Name: CSCI 475/476
+
 Client: Professor Erin Jablonski
+
 Instructor: Professor Brian King
 ----
 ## Abstract
@@ -38,3 +42,6 @@ If you want to use the hardware to play the game, you need to make sure the port
 4. Save the file and exit the text editor. 
 
 Your game is ready to go!
+
+## File Structure
+Most of the file names are self-explanary. The folder structure is managed by Unity 5, such as the ```Assets``` and ```ProjectSettings```. To make it easy to clone, we have also included a submodule link to the ```ArduinoNet``` library. 
