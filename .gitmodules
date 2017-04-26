@@ -1,0 +1,3 @@
+[submodule "ArduinoNet"]
+	path = ArduinoNet
+	url = git@github.com:The-Three-Musketeers/ArduinoNet.git
