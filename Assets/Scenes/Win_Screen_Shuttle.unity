@@ -841,7 +841,7 @@ ParticleSystem:
       maxColor: {r: 0.9764706, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 20000
+      scalar: 2000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1075,7 +1075,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 20000
+    maxNumParticles: 2000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -1144,7 +1144,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 50
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1183,7 +1183,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     rateOverDistance:
-      scalar: 50
+      scalar: 25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6320,7 +6320,7 @@ ParticleSystem:
       maxColor: {r: 0.9764706, g: 1, b: 1, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 20000
+      scalar: 2000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6554,7 +6554,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     randomizeRotationDirection: 0
-    maxNumParticles: 20000
+    maxNumParticles: 2000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -6623,7 +6623,7 @@ ParticleSystem:
     enabled: 1
     serializedVersion: 3
     rateOverTime:
-      scalar: 50
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6662,7 +6662,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     rateOverDistance:
-      scalar: 50
+      scalar: 25
       maxCurve:
         serializedVersion: 2
         m_Curve:

@@ -101,18 +101,13 @@ public class KeyListener : MonoBehaviour {
     //of the game.
     private void Serial_OnButtonPressed(object sender, ArduinoEventArg arg) {
         if (delay_timer >= 2) {
-            //Drop Button - Deprecated. Version 1.0 does not have this functionality (See RocketBehavior.cs for more details)
-            if (arg.Value == 0) {
-                UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE));
-                delay_timer = 0;
-            }
             //Left Arrow
             if (arg.Value == 1) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.prev_option());
                 delay_timer = 0;
             }
             //Launch-OK Button
-            if (arg.Value == 2) {
+            if (arg.Value == 0) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => {
                     //If on the gameplay screen, this button acts as the ENTER key
                     if (SceneManager.GetActiveScene().name == "Gameplay")
@@ -124,22 +119,22 @@ public class KeyListener : MonoBehaviour {
                 delay_timer = 0;
             }
             //Right Arrow
-            if (arg.Value == 3) {
+            if (arg.Value == 2) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => Selector.next_option());
                 delay_timer = 0;
             }
             //Red Rutton
-            if (arg.Value == 4) {
+            if (arg.Value == 3) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_J));
                 delay_timer = 0;
             }
             //Green Button
-            if (arg.Value == 5) {
+            if (arg.Value == 4) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_K));
                 delay_timer = 0;
             }
             //Blue Button
-            if (arg.Value == 6) {
+            if (arg.Value == 5) {
                 UnityMainThreadDispatcher.Instance().Enqueue(() => InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_L));
                 delay_timer = 0;
             }
