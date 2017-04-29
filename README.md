@@ -1,5 +1,5 @@
 # Lewisburg Children’s Museum Rocket Launch Game
-----
+
 Team Name: The Three Musketeers
 
 Team Members: Michael Hammer, Kenny Rader, and Keyi Zhang
@@ -9,6 +9,7 @@ Class Name: CSCI 475/476
 Client: Professor Erin Jablonski
 
 Instructor: Professor Brian King
+
 ----
 ## Abstract
 As technology evolves rapidly around us, it is important to keep children informed about science and technology so that they can be prepared for the life they are growing into. This can be challenging due to the complex nature of technology and what young children can comprehend. The Lewisburg Children’s Museum is doing their part to resolve this dilemma by educating children about science and technology through their new space exhibit. Interactive learning is one of the best solutions to this task, combining the values of entertainment and education in one unique experience.
@@ -21,13 +22,13 @@ This project depends on several frameworks and platforms. Arduino IDE is optiona
 + Git (required). See [how to install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 + Arduino IDE (optional). See [how to install Arduino IDE](https://www.arduino.cc/en/Guide/HomePage).
 
-After installtion, you can clone the entire repository:
+After all installations, you can clone the entire repository:
 ```
 git clone --recursive git@github.com:The-Three-Musketeers/Mission_Control_Alpha.git
 ```
-Using ```recursive``` option will also clone the Arduino library source code as a submodule. If you just want to run the game on a computer, you can just clone the repository using the following command:
+Using ```--recursive``` option will also clone the Arduino library source code as a submodule. If you just want to run the game on a computer, you can just clone the repository using the following command:
 ```
-git clone --recursive git@github.com:The-Three-Musketeers/Mission_Control_Alpha.git
+git clone git@github.com:The-Three-Musketeers/Mission_Control_Alpha.git
 ```
 
 If you are using git with a GUI, such as Github Windows client, you can clone this repository directly there.
@@ -43,5 +44,8 @@ If you want to use the hardware to play the game, you need to make sure the port
 
 Your game is ready to go!
 
+## Build
+We have provided built binary for this game in the [release page](https://github.com/The-Three-Musketeers/Mission_Control_Alpha/releases). If you want to build it on a different platform, please follow the Unity 5 build [tutorial](https://unity3d.com/learn/tutorials/projects/space-shooter-tutorial/building-game) or refer to this [documentation](https://docs.unity3d.com/Manual/BuildSettings.html).
+
 ## File Structure
-Most of the file names are self-explanary. The folder structure is managed by Unity 5, such as the ```Assets``` and ```ProjectSettings```. To make it easy to clone, we have also included a submodule link to the ```ArduinoNet``` library. 
+Most of the file names are self-explanatory. The folder structure is managed by Unity 5, such as the ```Assets``` and ```ProjectSettings```. To make it easy to clone, we have also included a submodule link to the ```ArduinoNet``` library. 
