@@ -46,11 +46,12 @@ public class KeyListener : MonoBehaviour {
     //Start out by getting the inputs from the analog controller
     //But only if the controller is connected (i.e. serial != null)
     void Start() {
+        Cursor.visible = false;
         if (serial != null) {
             serial.OnButtonPressed += Serial_OnButtonPressed;
             serial.OnSlideChanged += Serial_OnSlideChanged;
             serial.OnKnobChanged += Serial_OnKnobChanged;
-        } else {
+        } else if (SceneManager.GetActiveScene().name != "ErrorScreen") {
             ScreenChanges.staticSpecificScene("ErrorScreen");
         }
     }
@@ -60,6 +61,7 @@ public class KeyListener : MonoBehaviour {
         delay_timer += 1;
         //Quit with Q
         if (Input.GetKeyDown(KeyCode.Q)) {
+            print(":)");
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
         //Option Selection Keys
