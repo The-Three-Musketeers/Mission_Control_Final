@@ -32,3 +32,7 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# build file
+*.exe
+*_Data
