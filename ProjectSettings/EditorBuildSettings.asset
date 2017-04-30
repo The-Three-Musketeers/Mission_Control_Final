@@ -27,3 +27,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Win_Screen_Shuttle.unity
   - enabled: 1
     path: Assets/Scenes/Win_Screen_Mars.unity
+  - enabled: 1
+    path: Assets/Scenes/ErrorScreen.unity
