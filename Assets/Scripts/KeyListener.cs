@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using ArduinoNet;
 using WindowsInput;
+using System.Windows.Forms;
 
 //This script listens for keys and sends out signals to control
 //the game state appropriately.
@@ -16,7 +17,7 @@ public class KeyListener : MonoBehaviour {
     public static bool angle_selected = false;
 
     //Serial initialization
-    public static Serial serial = Serial.Connect("COM4");
+    public static Serial serial = Serial.Connect("COM3");
 
     // Update is called once per frame
     //The controls are as follows for the keyboard:
@@ -50,6 +51,9 @@ public class KeyListener : MonoBehaviour {
             serial.OnButtonPressed += Serial_OnButtonPressed;
             serial.OnSlideChanged += Serial_OnSlideChanged;
             serial.OnKnobChanged += Serial_OnKnobChanged;
+        } else {
+          System.Diagnostics.Process.GetCurrentProcess().Kill();
+          MessageBox.Show("No Controller Connected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
         }
     }
 
@@ -58,7 +62,7 @@ public class KeyListener : MonoBehaviour {
         delay_timer += 1;
         //Quit with Q
         if (Input.GetKeyDown(KeyCode.Q)) {
-            UnityEngine.Application.Quit();
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
         //Option Selection Keys
         if (Input.GetKeyDown(KeyCode.A)) {
