@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using ArduinoNet;
 using WindowsInput;
-using System.Windows.Forms;
 
 //This script listens for keys and sends out signals to control
 //the game state appropriately.
