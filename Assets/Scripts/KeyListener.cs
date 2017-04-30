@@ -52,8 +52,7 @@ public class KeyListener : MonoBehaviour {
             serial.OnSlideChanged += Serial_OnSlideChanged;
             serial.OnKnobChanged += Serial_OnKnobChanged;
         } else {
-          System.Diagnostics.Process.GetCurrentProcess().Kill();
-          MessageBox.Show("No Controller Connected", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            ScreenChanges.staticSpecificScene("ErrorScreen");
         }
     }
 
