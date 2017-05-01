@@ -45,7 +45,7 @@ If you want to use the hardware to play the game, you need to make sure the port
 Your game is ready to go!
 
 ## Build
-We have provided built binary for this game in the [release page](https://github.com/The-Three-Musketeers/Mission_Control_Alpha/releases). If you want to build it on a different platform, please follow the Unity 5 build [tutorial](https://unity3d.com/learn/tutorials/projects/space-shooter-tutorial/building-game) or refer to this [documentation](https://docs.unity3d.com/Manual/BuildSettings.html).
+We have provided built binary for this game in the [release page](https://github.com/The-Three-Musketeers/Mission_Control_Final/releases). If you want to build it on a different platform, please follow the Unity 5 build [tutorial](https://unity3d.com/learn/tutorials/projects/space-shooter-tutorial/building-game) or refer to this [documentation](https://docs.unity3d.com/Manual/BuildSettings.html).
 
 ## File Structure
 Most of the file names are self-explanatory. The folder structure is managed by Unity 5, such as the ```Assets``` and ```ProjectSettings```. To make it easy to clone, we have also included a submodule link to the ```ArduinoNet``` library. 
